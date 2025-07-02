@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import React, { useState } from "react"
 import { useChat } from "ai/react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -202,9 +202,23 @@ function ToolResult({ result }: { result: any }) {
 export default function ChatPage() {
   const [showQuickQuestions, setShowQuickQuestions] = useState(true)
   
-  const { messages, input, handleInputChange, handleSubmit, isLoading, setInput } = useChat({
+  const { messages, input, handleInputChange, handleSubmit, isLoading, setInput, error } = useChat({
     api: '/api/chat',
+    onResponse: (response) => {
+      console.log('API Response received:', response);
+    },
+    onFinish: (message) => {
+      console.log('Message finished:', message);
+    },
+    onError: (error) => {
+      console.error('Chat error:', error);
+    },
   })
+
+  // Log messages whenever they change
+  React.useEffect(() => {
+    console.log('Messages updated:', messages);
+  }, [messages])
 
   const handleQuickAction = (action: string) => {
     setInput(action)
@@ -268,6 +282,14 @@ export default function ChatPage() {
                 <div className="bg-white border border-gray-200 text-gray-700 px-4 py-2 rounded-2xl flex items-center gap-2">
                   <Loader2 className="w-4 h-4 animate-spin" />
                   Thinking...
+                </div>
+              </div>
+            )}
+
+            {error && (
+              <div className="flex justify-start">
+                <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-2 rounded-2xl max-w-md">
+                  <strong>Error:</strong> {error.message}
                 </div>
               </div>
             )}
