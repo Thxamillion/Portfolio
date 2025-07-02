@@ -1,17 +1,41 @@
-import { openai } from '@ai-sdk/openai';
+import { createOpenAI } from '@ai-sdk/openai';
 import { streamText } from 'ai';
+import { headers } from 'next/headers';
+
+// Force dynamic rendering to prevent caching issues
+export const dynamic = 'force-dynamic';
 
 export async function POST(req: Request) {
   try {
+    // Access headers to force dynamic behavior and prevent caching
+    const headersList = headers();
+    console.log('Request headers accessed, forcing dynamic behavior');
+    
     const { messages } = await req.json();
     
-    // Temporarily hardcode the API key until we fix env loading
-    const apiKey = "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";
+    // Add extensive logging
+    console.log('Received messages:', messages);
+    
+    // Load API key from environment variable
+    const apiKey = process.env.OPENAI_API_KEY;
+    
+    if (!apiKey) {
+      console.error('OPENAI_API_KEY is not set in environment variables');
+      throw new Error('OpenAI API key is not configured');
+    }
+    
+    console.log('API Key length:', apiKey.length);
+    console.log('API Key starts with:', apiKey.substring(0, 7) + '...');
+    
+    // Create OpenAI instance with explicit API key
+    const openai = createOpenAI({
+      apiKey: apiKey,
+    });
+    
+    console.log('About to call streamText...');
     
     const result = await streamText({
-      model: openai('gpt-4o-mini', {
-        apiKey: apiKey,
-      }),
+      model: openai('gpt-4o-mini'),
       messages,
       system: `You are QuinGPT, an AI-powered interactive portfolio for Quin Ortiz, a skilled full-stack developer. 
 
@@ -31,12 +55,23 @@ Key Information about Quin:
 - LinkedIn: https://linkedin.com/in/quinortiz
 
 Be conversational and engaging. Ask follow-up questions to keep the conversation flowing.`,
+      onError: (error) => {
+        console.error('streamText onError:', error);
+      },
     });
     
-    return result.toDataStreamResponse();
+    console.log('streamText completed, returning response');
+    
+    return result.toDataStreamResponse({
+      getErrorMessage: (error) => {
+        console.error('toDataStreamResponse error:', error);
+        return `API Error: ${error.message || error.toString()}`;
+      }
+    });
     
   } catch (error) {
     console.error('API Error:', error);
+    console.error('Error details:', JSON.stringify(error, Object.getOwnPropertyNames(error)));
     return new Response(JSON.stringify({ error: error.message }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' }
