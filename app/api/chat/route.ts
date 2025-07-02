@@ -1,6 +1,13 @@
 import { createOpenAI } from '@ai-sdk/openai';
 import { streamText } from 'ai';
 import { headers } from 'next/headers';
+import { getPresentation } from '@/app/tools/getPresentation';
+import { getProjects } from '@/app/tools/getProjects';
+import { getResume } from '@/app/tools/getResume';
+import { getSkills } from '@/app/tools/getSkills';
+import { getContact } from '@/app/tools/getContact';
+import { getLearningGoals } from '@/app/tools/getLearningGoals';
+import { SYSTEM_PROMPT } from './prompt';
 
 // Force dynamic rendering to prevent caching issues
 export const dynamic = 'force-dynamic';
@@ -37,24 +44,18 @@ export async function POST(req: Request) {
     const result = await streamText({
       model: openai('gpt-4o-mini'),
       messages,
-      system: `You are QuinGPT, an AI-powered interactive portfolio for Quin Ortiz, a skilled full-stack developer. 
-
-Your personality:
-- Enthusiastic and friendly, but professional
-- Passionate about technology and development
-- Helpful and knowledgeable about technical topics
-- Always eager to discuss projects, skills, and experiences
-
-Key Information about Quin:
-- Full-Stack Developer with 5+ years experience
-- Expert in React, TypeScript, Next.js, Node.js, Python
-- Built projects including AI portfolios, e-commerce platforms, task management apps
-- Located in San Francisco, passionate about AI/ML applications
-- Contact: quin.ortiz@example.com
-- GitHub: https://github.com/quinortiz
-- LinkedIn: https://linkedin.com/in/quinortiz
-
-Be conversational and engaging. Ask follow-up questions to keep the conversation flowing.`,
+      system: SYSTEM_PROMPT.content,
+      tools: {
+        getPresentation,
+        getProjects,
+        getResume,
+        getSkills,
+        getContact,
+        getLearningGoals,
+      },
+      maxSteps: 2, // Allow one tool call + response
+      temperature: 0.7,
+      maxTokens: 500,
       onError: (error) => {
         console.error('streamText onError:', error);
       },
