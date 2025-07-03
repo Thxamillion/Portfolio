@@ -8,6 +8,7 @@ import { ChevronDown, ArrowRight, User, FolderOpen, Award, Sparkles, Mail, MoreH
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 import { ToolRenderer } from "@/components/chat/ToolRenderer"
+import { analytics } from "@/lib/posthog"
 
 export default function ChatPage() {
   const [showQuickQuestions, setShowQuickQuestions] = useState(true)
@@ -47,7 +48,13 @@ export default function ChatPage() {
         setToolCache(newCache)
         localStorage.setItem('quinPortfolioToolCache', JSON.stringify(newCache))
         console.log(`Cached response for tool: ${toolName}`)
+        
+        // Track tool usage
+        analytics.trackToolInvoked(toolName, false)
       }
+      
+      // Track response generation
+      analytics.trackResponseGenerated(message.toolInvocations?.length > 0)
     },
     onError: (error) => {
       console.error('Chat error:', error);
@@ -73,6 +80,10 @@ export default function ChatPage() {
   }, [messages])
 
   const handleQuickAction = async (action: string) => {
+    // Track the quick action
+    analytics.trackQuestionAsked(action, true)
+    analytics.trackQuickActionClicked(action)
+    
     // Map questions to tool names for cache lookup
     const toolMapping: Record<string, string> = {
       "Who are you? Tell me about yourself": "getPresentation",
@@ -113,6 +124,9 @@ export default function ChatPage() {
         // Add assistant message and stop loading
         setMessages(prev => [...prev, cachedMessage])
         setIsSimulatedLoading(false)
+        
+        // Track cached tool usage
+        analytics.trackToolInvoked(toolName, true, delay)
       }, delay)
       
       return
@@ -156,6 +170,9 @@ export default function ChatPage() {
     setToolCache({})
     localStorage.removeItem('quinPortfolioToolCache')
     console.log('Tool cache cleared!')
+    
+    // Track cache clearing
+    analytics.trackCacheCleared()
   }
 
   // Development helpers
@@ -424,6 +441,9 @@ export default function ChatPage() {
                   onClick={(e) => {
                     e.stopPropagation()
                     setShowMoreDropdown(!showMoreDropdown)
+                    if (!showMoreDropdown) {
+                      analytics.trackDropdownOpened()
+                    }
                   }}
                 >
                   <MoreHorizontal className="w-4 h-4 text-gray-500" />
@@ -457,7 +477,13 @@ export default function ChatPage() {
           )}
 
           {/* Search input */}
-          <form onSubmit={handleSubmit} className="relative">
+          <form onSubmit={(e) => {
+            // Track manual question input
+            if (input.trim()) {
+              analytics.trackQuestionAsked(input, false)
+            }
+            handleSubmit(e)
+          }} className="relative">
             <Input
               type="text"
               placeholder="Ask me anything"

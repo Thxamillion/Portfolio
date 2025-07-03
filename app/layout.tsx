@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import { PostHogProvider } from '@/components/providers/PostHogProvider'
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
+  title: 'QuinGPT - AI Portfolio',
+  description: 'Interactive AI-powered portfolio by Quin Ortiz',
   generator: 'v0.dev',
 }
 
@@ -14,7 +15,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <PostHogProvider>
+          {children}
+        </PostHogProvider>
+      </body>
     </html>
   )
 }
