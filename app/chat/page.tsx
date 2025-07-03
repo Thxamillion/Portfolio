@@ -9,12 +9,15 @@ import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 import { ToolRenderer } from "@/components/chat/ToolRenderer"
 import { analytics } from "@/lib/posthog"
+// import AnimatedAvatar from "@/components/AnimatedAvatar"
 
 export default function ChatPage() {
   const [showQuickQuestions, setShowQuickQuestions] = useState(true)
   const [toolCache, setToolCache] = useState<Record<string, any>>({})
   const [isSimulatedLoading, setIsSimulatedLoading] = useState(false)
   const [showMoreDropdown, setShowMoreDropdown] = useState(false)
+  const [isAIThinking, setIsAIThinking] = useState(false)
+  const [isAITalking, setIsAITalking] = useState(false)
   
   // Load cache from localStorage on mount
   React.useEffect(() => {
@@ -32,6 +35,8 @@ export default function ChatPage() {
     api: '/api/chat',
     onResponse: (response) => {
       // console.log('API Response received:', response);
+      setIsAIThinking(false);
+      setIsAITalking(true);
     },
     onFinish: (message) => {
       // console.log('Message finished:', message);
@@ -57,9 +62,14 @@ export default function ChatPage() {
       const lastUserMessage = messages[messages.length - 1]
       const questionText = lastUserMessage?.role === 'user' ? lastUserMessage.content : undefined
       analytics.trackResponseGenerated(message.toolInvocations?.length > 0, undefined, message.content, questionText)
+      
+      // Stop talking animation
+      setIsAITalking(false)
     },
     onError: (error) => {
       console.error('Chat error:', error);
+      setIsAIThinking(false);
+      setIsAITalking(false);
     },
   })
 
@@ -111,6 +121,7 @@ export default function ChatPage() {
       // Add user message immediately and start simulated loading
       setMessages(prev => [...prev, userMessage])
       setIsSimulatedLoading(true)
+      setIsAIThinking(true)
       
       // Simulate loading with a delay (800-1200ms for natural feel)
       const delay = 800 + Math.random() * 400
@@ -126,6 +137,7 @@ export default function ChatPage() {
         // Add assistant message and stop loading
         setMessages(prev => [...prev, cachedMessage])
         setIsSimulatedLoading(false)
+        setIsAIThinking(false)
         
         // Track cached tool usage
         analytics.trackToolInvoked(toolName, true, delay)
@@ -136,6 +148,7 @@ export default function ChatPage() {
     
     // If not cached, proceed with normal API call
     setInput(action)
+    setIsAIThinking(true)
     // Use setTimeout to ensure the input is set before submitting
     setTimeout(() => {
       const form = document.querySelector('form')
@@ -312,7 +325,13 @@ export default function ChatPage() {
       {/* Top section with avatar and initial state */}
       <div className="flex-none pt-12 pb-8">
         <div className="flex justify-center mb-6">
-          <div className="text-6xl">👨🏻</div>
+          <div className="h-20 w-20 mx-auto">
+            <img
+              src="/quin-static.png"
+              alt="Quin's Avatar"
+              className="w-full h-full object-cover rounded-full"
+            />
+          </div>
         </div>
 
         {messages.length === 0 && (
@@ -483,6 +502,7 @@ export default function ChatPage() {
             // Track manual question input
             if (input.trim()) {
               analytics.trackQuestionAsked(input, false)
+              setIsAIThinking(true)
             }
             handleSubmit(e)
           }} className="relative">

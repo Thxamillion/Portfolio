@@ -15,7 +15,13 @@ export default function LandingPage() {
         <div className="text-center max-w-4xl mx-auto">
           {/* Avatar */}
           <div className="flex justify-center mb-8">
-            <div className="text-8xl">👨🏻</div>
+            <div className="h-32 w-32">
+              <img
+                src="/quin-static.png"
+                alt="Quin's Avatar"
+                className="w-full h-full object-cover rounded-full"
+              />
+            </div>
           </div>
 
           {/* Main Heading */}

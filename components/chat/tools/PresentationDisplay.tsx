@@ -23,11 +23,15 @@ export function PresentationDisplay() {
       <h1 className="text-3xl font-bold text-gray-900 mb-6">{data.name}</h1>
       
       {/* Main Content - Horizontal Layout */}
-      <div className="flex gap-6">
+      <div className="flex gap-8">
         {/* Left - Profile Image */}
         <div className="flex-shrink-0">
-          <div className="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center">
-            <span className="text-gray-500 text-sm">Photo</span>
+          <div className="w-72 h-72 rounded-lg overflow-hidden shadow-lg">
+            <img
+              src="/profile.png"
+              alt="Quin Ortiz Profile"
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
         
