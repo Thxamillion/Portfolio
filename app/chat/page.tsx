@@ -31,10 +31,10 @@ export default function ChatPage() {
   const { messages, input, handleInputChange, handleSubmit, isLoading, setInput, error, setMessages } = useChat({
     api: '/api/chat',
     onResponse: (response) => {
-      console.log('API Response received:', response);
+      // console.log('API Response received:', response);
     },
     onFinish: (message) => {
-      console.log('Message finished:', message);
+      // console.log('Message finished:', message);
       
       // Cache tool responses
       if (message.toolInvocations?.length > 0) {
@@ -53,8 +53,10 @@ export default function ChatPage() {
         analytics.trackToolInvoked(toolName, false)
       }
       
-      // Track response generation
-      analytics.trackResponseGenerated(message.toolInvocations?.length > 0)
+      // Track response generation with question context
+      const lastUserMessage = messages[messages.length - 1]
+      const questionText = lastUserMessage?.role === 'user' ? lastUserMessage.content : undefined
+      analytics.trackResponseGenerated(message.toolInvocations?.length > 0, undefined, message.content, questionText)
     },
     onError: (error) => {
       console.error('Chat error:', error);
@@ -76,7 +78,7 @@ export default function ChatPage() {
   
   // Handle message transitions
   React.useEffect(() => {
-    console.log('Messages updated:', messages);
+    // console.log('Messages updated:', messages);
   }, [messages])
 
   const handleQuickAction = async (action: string) => {
