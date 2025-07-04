@@ -7,6 +7,7 @@ import { getResume } from '@/app/tools/getResume';
 import { getSkills } from '@/app/tools/getSkills';
 import { getContact } from '@/app/tools/getContact';
 import { getLearningGoals } from '@/app/tools/getLearningGoals';
+import { getResumeRoast } from '@/app/tools/getResumeRoast';
 import { SYSTEM_PROMPT } from './prompt';
 
 // Force dynamic rendering to prevent caching issues
@@ -43,6 +44,7 @@ export async function POST(req: Request) {
         getSkills,
         getContact,
         getLearningGoals,
+        getResumeRoast,
       },
       maxSteps: 2, // Allow one tool call + response
       temperature: 0.7,

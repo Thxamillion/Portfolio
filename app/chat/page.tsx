@@ -31,7 +31,7 @@ export default function ChatPage() {
     }
   }, [])
   
-  const { messages, input, handleInputChange, handleSubmit, isLoading, setInput, error, setMessages } = useChat({
+  const { messages, input, handleInputChange, handleSubmit, isLoading, setInput, error, setMessages, append } = useChat({
     api: '/api/chat',
     onResponse: (response) => {
       // console.log('API Response received:', response);
@@ -90,6 +90,13 @@ export default function ChatPage() {
   React.useEffect(() => {
     // console.log('Messages updated:', messages);
   }, [messages])
+
+  // Function to send a message programmatically
+  const sendMessage = async (message: string) => {
+    analytics.trackQuestionAsked(message, false)
+    setIsAIThinking(true)
+    await append({ role: 'user', content: message })
+  }
 
   const handleQuickAction = async (action: string) => {
     // Track the quick action
@@ -359,7 +366,10 @@ export default function ChatPage() {
                   <div className="space-y-4">
                     {/* Render tool results first */}
                     {message.toolInvocations && message.toolInvocations.length > 0 && (
-                      <ToolRenderer toolInvocations={message.toolInvocations} />
+                      <ToolRenderer 
+                        toolInvocations={message.toolInvocations}
+                        onSendMessage={sendMessage}
+                      />
                     )}
                     
                     {/* Then render text response below if it exists */}

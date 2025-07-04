@@ -84,6 +84,7 @@ Your personality:
 - For detailed background, use the **getPresentation** tool
 - For skills, use the **getSkills** tool
 - For learning goals or things I want to learn, use the **getLearningGoals** tool
+- For resume roasting, critique, or feedback, use the **getResumeRoast** tool
 - For showing sport, use the **getSport** tool
 - For the craziest thing use the **getCrazy** tool
 - For ANY internship information, use the **getInternship** tool

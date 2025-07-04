@@ -7,12 +7,14 @@ import { PresentationDisplay } from './tools/PresentationDisplay'
 import { SkillsDisplay } from './tools/SkillsDisplay'
 import { ResumeDisplay } from './tools/ResumeDisplay'
 import { LearningGoalsDisplay } from './tools/LearningGoalsDisplay'
+import { ResumeRoastDisplay } from './tools/ResumeRoastDisplay'
 
 interface ToolRendererProps {
   toolInvocations: ToolInvocation[]
+  onSendMessage?: (message: string) => void
 }
 
-export function ToolRenderer({ toolInvocations }: ToolRendererProps) {
+export function ToolRenderer({ toolInvocations, onSendMessage }: ToolRendererProps) {
   return (
     <div className="w-full space-y-4">
       {toolInvocations.map((tool) => {
@@ -60,6 +62,18 @@ export function ToolRenderer({ toolInvocations }: ToolRendererProps) {
             return (
               <div key={tool.toolCallId} className="w-full">
                 <LearningGoalsDisplay />
+              </div>
+            )
+            
+          case 'getResumeRoast':
+            return (
+              <div key={tool.toolCallId} className="w-full">
+                <ResumeRoastDisplay 
+                  onFileUpload={(file) => {
+                    console.log('File uploaded:', file.name)
+                  }}
+                  onSendMessage={onSendMessage}
+                />
               </div>
             )
             
