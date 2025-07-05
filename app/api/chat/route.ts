@@ -18,6 +18,8 @@ import { SYSTEM_PROMPT } from './prompt';
 // Force dynamic rendering to prevent caching issues
 export const dynamic = 'force-dynamic';
 
+// Test comment for git config verification
+
 export async function POST(req: Request) {
   try {
     // Access headers to force dynamic behavior and prevent caching
