@@ -1,12 +1,27 @@
-import * as pdfjsLib from 'pdfjs-dist';
-
 // Set the worker source for PDF.js
+let pdfjsLib: any = null;
+
 if (typeof window !== 'undefined') {
-  pdfjsLib.GlobalWorkerOptions.workerSrc = '/pdf.worker.min.js';
+  // Only import PDF.js on the client side
+  import('pdfjs-dist').then((lib) => {
+    pdfjsLib = lib;
+    lib.GlobalWorkerOptions.workerSrc = '/pdf.worker.min.js';
+  });
 }
 
 export async function extractTextFromPDF(file: File): Promise<string> {
   try {
+    // Ensure we're on the client side
+    if (typeof window === 'undefined') {
+      throw new Error('PDF parsing only available on client side');
+    }
+    
+    // Dynamically import PDF.js if not already loaded
+    if (!pdfjsLib) {
+      pdfjsLib = await import('pdfjs-dist');
+      pdfjsLib.GlobalWorkerOptions.workerSrc = '/pdf.worker.min.js';
+    }
+    
     // Convert file to ArrayBuffer
     const arrayBuffer = await file.arrayBuffer();
     

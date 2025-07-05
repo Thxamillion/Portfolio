@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from 'framer-motion'
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Upload, FileText, Flame, Trash2 } from 'lucide-react'
@@ -17,7 +17,17 @@ export function ResumeRoastDisplay({ roastText, onFileUpload, onSendMessage }: R
   const [isDragging, setIsDragging] = useState(false)
   const [isUploading, setIsUploading] = useState(false)
   const [showSuccessMessage, setShowSuccessMessage] = useState(false)
+  const [isClient, setIsClient] = useState(false)
   const fileInputRef = useRef<HTMLInputElement>(null)
+  
+  // Ensure component only renders on client
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+  
+  if (!isClient) {
+    return <div>Loading...</div>
+  }
 
   const handleFileSelect = async (file: File) => {
     if (file.type === 'application/pdf' || file.type === 'text/plain' || file.name.endsWith('.pdf')) {

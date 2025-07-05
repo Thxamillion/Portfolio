@@ -8,6 +8,11 @@ import { getSkills } from '@/app/tools/getSkills';
 import { getContact } from '@/app/tools/getContact';
 import { getLearningGoals } from '@/app/tools/getLearningGoals';
 import { getResumeRoast } from '@/app/tools/getResumeRoast';
+import { getSport } from '@/app/tools/getSport';
+import { getCrazy } from '@/app/tools/getCrazy';
+import { getInternship } from '@/app/tools/getInternship';
+import { getRateLimit } from '@/app/tools/getRateLimit';
+import { checkRateLimit } from '@/lib/rateLimiter';
 import { SYSTEM_PROMPT } from './prompt';
 
 // Force dynamic rendering to prevent caching issues
@@ -33,6 +38,24 @@ export async function POST(req: Request) {
       apiKey: apiKey,
     });
     
+    // Get client IP for rate limiting
+    const ip = headersList.get('x-forwarded-for') || headersList.get('x-real-ip') || 'unknown';
+    
+    // Check rate limit
+    const rateLimit = checkRateLimit(ip);
+    
+    if (rateLimit.triggerRateLimit) {
+      // User hit rate limit - force AI to use getRateLimit tool
+      return streamText({
+        model: openai('gpt-4o-mini'),
+        messages: [{ role: 'user', content: 'rate limit reached' }],
+        system: 'Use getRateLimit tool immediately, then respond with a humorous message about hitting the rate limit. Be funny and encouraging!',
+        tools: { getRateLimit },
+        maxSteps: 2,
+        temperature: 0.9,
+      }).toDataStreamResponse();
+    }
+    
     const result = await streamText({
       model: openai('gpt-4o-mini'),
       messages,
@@ -45,6 +68,10 @@ export async function POST(req: Request) {
         getContact,
         getLearningGoals,
         getResumeRoast,
+        getSport,
+        getCrazy,
+        getInternship,
+        getRateLimit,
       },
       maxSteps: 2, // Allow one tool call + response
       temperature: 0.7,

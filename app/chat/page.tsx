@@ -176,6 +176,7 @@ export default function ChatPage() {
 
   // Preset questions for More dropdown
   const presetQuestions = [
+    "Can you roast my resume?",
     "What's your favorite food?",
     "Tell me about your NBA interests",
     "What are your personal qualities?", 

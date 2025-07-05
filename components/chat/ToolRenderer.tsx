@@ -8,6 +8,10 @@ import { SkillsDisplay } from './tools/SkillsDisplay'
 import { ResumeDisplay } from './tools/ResumeDisplay'
 import { LearningGoalsDisplay } from './tools/LearningGoalsDisplay'
 import { ResumeRoastDisplay } from './tools/ResumeRoastDisplay'
+import { SportDisplay } from './tools/SportDisplay'
+import { CrazyDisplay } from './tools/CrazyDisplay'
+import { InternshipDisplay } from './tools/InternshipDisplay'
+import { RateLimitDisplay } from './tools/RateLimitDisplay'
 
 interface ToolRendererProps {
   toolInvocations: ToolInvocation[]
@@ -74,6 +78,34 @@ export function ToolRenderer({ toolInvocations, onSendMessage }: ToolRendererPro
                   }}
                   onSendMessage={onSendMessage}
                 />
+              </div>
+            )
+            
+          case 'getSport':
+            return (
+              <div key={tool.toolCallId} className="w-full">
+                <SportDisplay />
+              </div>
+            )
+            
+          case 'getCrazy':
+            return (
+              <div key={tool.toolCallId} className="w-full">
+                <CrazyDisplay />
+              </div>
+            )
+            
+          case 'getInternship':
+            return (
+              <div key={tool.toolCallId} className="w-full">
+                <InternshipDisplay />
+              </div>
+            )
+            
+          case 'getRateLimit':
+            return (
+              <div key={tool.toolCallId} className="w-full">
+                <RateLimitDisplay />
               </div>
             )
             
