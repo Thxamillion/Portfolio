@@ -34,7 +34,7 @@ export default function LandingPage() {
 
           {/* Subtitle */}
           <p className="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
-            Full-Stack Developer & AI Enthusiast
+            Full-Stack Developer
           </p>
 
           {/* Description */}

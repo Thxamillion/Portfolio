@@ -35,13 +35,14 @@ class PostHogAnalytics {
         api_host: host || 'https://app.posthog.com',
         disable_session_recording: false,
         capture_pageview: false, // We'll handle this manually
-        // Disable in development (temporarily commented out for testing)
+        // Disable in development
         loaded: (posthog) => {
           console.log('✅ PostHog loaded callback triggered')
           console.log('📊 PostHog instance:', posthog)
-          // if (process.env.NODE_ENV === 'development') {
-          //   posthog.opt_out_capturing()
-          // }
+          if (process.env.NODE_ENV === 'development') {
+            posthog.opt_out_capturing()
+            console.log('🚫 PostHog disabled in development')
+          }
         }
       })
 

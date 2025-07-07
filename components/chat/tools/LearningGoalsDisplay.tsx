@@ -6,15 +6,9 @@ import { Target, BookOpen, Eye } from 'lucide-react'
 const learningGoals = [
   {
     title: 'AI/ML',
-    skills: ['LangChain', 'TensorFlow', 'Mistral and Open Source Models', 'Hugging Face' ],
+    skills: ['LangChain', 'Mistral and Open Source Models', 'Hugging Face' ],
     color: 'pink',
     icon: Target
-  },
-  {
-    title: 'Cloud & DevOps',
-    skills: ['Kubernetes', ],
-    color: 'blue',
-    icon: BookOpen
   }
 ]
 

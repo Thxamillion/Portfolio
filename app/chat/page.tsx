@@ -178,14 +178,13 @@ export default function ChatPage() {
   // Preset questions for More dropdown
   const presetQuestions = [
     "Can you roast my resume?",
+    "Whats your favorite AI tool?",
     "What would you love to learn next?",
     "What's your favorite food?",
-    "Tell me about your NBA interests",
     "What are your personal qualities?", 
     "What's your 5-year career goal?",
     "What kind of project would make you say yes immediately?",
     "Tell me something fun about yourself",
-    "Where are you from?",
     "What motivates you in your career?"
   ]
 

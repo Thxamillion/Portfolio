@@ -10,14 +10,10 @@ const contactData = {
   email: 'quinortiz00@gmail.com',
   socials: [
     { platform: 'LinkedIn', url: 'https://linkedin.com/in/quinortiz', label: 'LinkedIn' },
-    { platform: 'YouTube', url: 'https://youtube.com/@quinortiz', label: 'Youtube' },
-    { platform: 'Instagram', url: 'https://instagram.com/quinortiz', label: 'Instagram' },
-    { platform: 'Discord', url: 'https://discord.gg/quinortiz', label: 'Discord' },
-    { platform: 'GitHub', url: 'https://github.com/thxamillion', label: 'Github' },
-    { platform: 'X', url: 'https://x.com/quinortiz', label: 'X' }
+    { platform: 'GitHub', url: 'https://github.com/thxamillion', label: 'GitHub' },
+
   ],
-  message: "You can reach me through a few channels! 📧 Just hit me up at quin.ortiz@example.com, or check out my LinkedIn here and my GitHub here. I'm always happy to chat! As for projects that would make me say \"yes\" immediately, I'm all in for anything that involves AI doing 99% of the work while I take 100% of the credit! 😄 Seriously though, I'm super excited about AI development, full-stack web apps, and SaaS products. What kind of projects are you into?"
-}
+  message: "You can reach me anytime at my email, quinortiz00@gmail.com, or connect with me on LinkedIn and GitHub. I'm always happy to chat! If you’re working on implementing AI solutions or building something smart and useful, I’d love to be part of it. I’m especially into AI tools, full-stack web apps, and cool SaaS ideas that solve real problems. What are you building?"}
 
 export function ContactDisplay() {
   const data = contactData

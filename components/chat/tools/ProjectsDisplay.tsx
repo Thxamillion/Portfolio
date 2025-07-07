@@ -30,45 +30,45 @@ const projects = [
       video: 'https://youtu.be/Z5ZjHamozEA',
 
     }
-  },
-  {
-    id: 3,
-    title: 'SoundWave Player',
-    description: 'Music streaming app with personalized playlists and social sharing features.',
-    bio: 'SoundWave Player is a modern music streaming application that combines personalized recommendations with social features. Users can create custom playlists, discover new music through AI-powered suggestions, and share their favorite tracks with friends.',
-    tech: ['Flutter', 'Dart', 'Firebase', 'Spotify API', 'Machine Learning'],
-    images: ['/placeholder.svg?height=256&width=320&text=Music+Streaming+App'],
-    links: {
-      demo: 'https://soundwave-player.com',
-      github: 'https://github.com/quinortiz/soundwave-player',
-      playStore: 'https://play.google.com/store/soundwave'
-    }
-  },
-  {
-    id: 4,
-    title: 'E-Commerce Platform',
-    description: 'Full-stack e-commerce solution with payment integration and inventory management.',
-    bio: 'A comprehensive e-commerce platform built for scalability and performance. Features include advanced inventory management, secure payment processing, real-time analytics, and a responsive admin dashboard. Designed to handle high-volume transactions with optimized performance.',
-    tech: ['React', 'Node.js', 'PostgreSQL', 'Stripe', 'Redis', 'Docker'],
-    images: ['/placeholder.svg?height=256&width=320&text=E-Commerce+Platform'],
-    links: {
-      demo: 'https://ecommerce-demo.com',
-      github: 'https://github.com/quinortiz/ecommerce-platform',
-      live: 'https://store.quinortiz.com'
-    }
-  },
-  {
-    id: 5,
-    title: 'FitTracker Pro',
-    description: 'Comprehensive fitness tracking app with workout plans and progress analytics.',
-    bio: 'FitTracker Pro is a full-featured fitness application that helps users achieve their health goals through personalized workout plans, nutrition tracking, and detailed progress analytics. The app includes social features for motivation and expert-designed workout routines.',
-    tech: ['React Native', 'TypeScript', 'MongoDB', 'Express.js', 'Chart.js'],
-    images: ['/placeholder.svg?height=256&width=320&text=Fitness+Tracker+App'],
-    links: {
-      demo: 'https://fittracker-pro.com',
-      github: 'https://github.com/quinortiz/fittracker-pro',
-      appStore: 'https://apps.apple.com/fittracker-pro'
-    }
+  // },
+  // {
+  //   id: 3,
+  //   title: 'SoundWave Player',
+  //   description: 'Music streaming app with personalized playlists and social sharing features.',
+  //   bio: 'SoundWave Player is a modern music streaming application that combines personalized recommendations with social features. Users can create custom playlists, discover new music through AI-powered suggestions, and share their favorite tracks with friends.',
+  //   tech: ['Flutter', 'Dart', 'Firebase', 'Spotify API', 'Machine Learning'],
+  //   images: ['/placeholder.svg?height=256&width=320&text=Music+Streaming+App'],
+  //   links: {
+  //     demo: 'https://soundwave-player.com',
+  //     github: 'https://github.com/quinortiz/soundwave-player',
+  //     playStore: 'https://play.google.com/store/soundwave'
+  //   }
+  // },
+  // {
+  //   id: 4,
+  //   title: 'E-Commerce Platform',
+  //   description: 'Full-stack e-commerce solution with payment integration and inventory management.',
+  //   bio: 'A comprehensive e-commerce platform built for scalability and performance. Features include advanced inventory management, secure payment processing, real-time analytics, and a responsive admin dashboard. Designed to handle high-volume transactions with optimized performance.',
+  //   tech: ['React', 'Node.js', 'PostgreSQL', 'Stripe', 'Redis', 'Docker'],
+  //   images: ['/placeholder.svg?height=256&width=320&text=E-Commerce+Platform'],
+  //   links: {
+  //     demo: 'https://ecommerce-demo.com',
+  //     github: 'https://github.com/quinortiz/ecommerce-platform',
+  //     live: 'https://store.quinortiz.com'
+  //   }
+  // },
+  // {
+  //   id: 5,
+  //   title: 'FitTracker Pro',
+  //   description: 'Comprehensive fitness tracking app with workout plans and progress analytics.',
+  //   bio: 'FitTracker Pro is a full-featured fitness application that helps users achieve their health goals through personalized workout plans, nutrition tracking, and detailed progress analytics. The app includes social features for motivation and expert-designed workout routines.',
+  //   tech: ['React Native', 'TypeScript', 'MongoDB', 'Express.js', 'Chart.js'],
+  //   images: ['/placeholder.svg?height=256&width=320&text=Fitness+Tracker+App'],
+  //   links: {
+  //     demo: 'https://fittracker-pro.com',
+  //     github: 'https://github.com/quinortiz/fittracker-pro',
+  //     appStore: 'https://apps.apple.com/fittracker-pro'
+  //   }
   }
 ]
 
