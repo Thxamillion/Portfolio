@@ -22,10 +22,10 @@ export function PresentationDisplay() {
       {/* Header - Name */}
       <h1 className="text-3xl font-bold text-gray-900 mb-6">{data.name}</h1>
       
-      {/* Main Content - Horizontal Layout */}
-      <div className="flex gap-8">
-        {/* Left - Profile Image */}
-        <div className="flex-shrink-0">
+      {/* Main Content - Responsive Layout */}
+      <div className="flex flex-col lg:flex-row gap-8">
+        {/* Profile Image */}
+        <div className="flex-shrink-0 mx-auto lg:mx-0">
           <div className="w-72 h-72 rounded-lg overflow-hidden shadow-lg">
             <img
               src="/profile.png"
@@ -35,7 +35,7 @@ export function PresentationDisplay() {
           </div>
         </div>
         
-        {/* Right - Info */}
+        {/* Info */}
         <div className="flex-1">
           {/* Age and Location */}
           <div className="mb-4 space-y-1">

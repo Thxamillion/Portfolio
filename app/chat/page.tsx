@@ -109,7 +109,8 @@ export default function ChatPage() {
       "What projects have you worked on?": "getProjects", 
       "Show me your resume": "getResume",
       "What are your technical skills?": "getSkills",
-      "How can I contact you?": "getContact"
+      "How can I contact you?": "getContact",
+      "Are you looking for a role?": "getNewGrad"
     }
     
     const toolName = toolMapping[action]
@@ -177,12 +178,12 @@ export default function ChatPage() {
   // Preset questions for More dropdown
   const presetQuestions = [
     "Can you roast my resume?",
+    "What would you love to learn next?",
     "What's your favorite food?",
     "Tell me about your NBA interests",
     "What are your personal qualities?", 
     "What's your 5-year career goal?",
     "What kind of project would make you say yes immediately?",
-    "What would you love to learn next?",
     "Tell me something fun about yourself",
     "Where are you from?",
     "What motivates you in your career?"
@@ -317,8 +318,23 @@ export default function ChatPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
-      {/* Clear cache button - top left */}
+      {/* Hiring button - top left */}
       <div className="absolute top-4 left-4 z-10">
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={() => handleQuickAction("Are you looking for a role?")}
+          className="flex items-center gap-2 bg-white/80 backdrop-blur-sm border-gray-200 hover:bg-white text-gray-600 hover:text-gray-800 relative"
+        >
+          <div className="relative">
+            <div className="absolute -top-1 -right-1 w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+          </div>
+          Hiring a New Grad?
+        </Button>
+      </div>
+
+      {/* Clear cache button - top right */}
+      <div className="absolute top-4 right-4 z-10">
         <Button
           variant="outline"
           size="sm"

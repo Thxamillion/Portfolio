@@ -10,7 +10,7 @@ import { getLearningGoals } from '@/app/tools/getLearningGoals';
 import { getResumeRoast } from '@/app/tools/getResumeRoast';
 import { getSport } from '@/app/tools/getSport';
 import { getCrazy } from '@/app/tools/getCrazy';
-import { getInternship } from '@/app/tools/getInternship';
+import { getNewGrad } from '@/app/tools/getNewGrad';
 import { getRateLimit } from '@/app/tools/getRateLimit';
 import { checkRateLimit } from '@/lib/rateLimiter';
 import { SYSTEM_PROMPT } from './prompt';
@@ -72,7 +72,7 @@ export async function POST(req: Request) {
         getResumeRoast,
         getSport,
         getCrazy,
-        getInternship,
+        getNewGrad,
         getRateLimit,
       },
       maxSteps: 2, // Allow one tool call + response

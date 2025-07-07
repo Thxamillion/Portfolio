@@ -7,13 +7,13 @@ import { motion } from 'framer-motion'
 const contactData = {
   name: 'Quin Ortiz',
   username: '@Quin.Ortiz',
-  email: 'quin.ortiz@example.com',
+  email: 'quinortiz00@gmail.com',
   socials: [
     { platform: 'LinkedIn', url: 'https://linkedin.com/in/quinortiz', label: 'LinkedIn' },
     { platform: 'YouTube', url: 'https://youtube.com/@quinortiz', label: 'Youtube' },
     { platform: 'Instagram', url: 'https://instagram.com/quinortiz', label: 'Instagram' },
     { platform: 'Discord', url: 'https://discord.gg/quinortiz', label: 'Discord' },
-    { platform: 'GitHub', url: 'https://github.com/quinortiz', label: 'Github' },
+    { platform: 'GitHub', url: 'https://github.com/thxamillion', label: 'Github' },
     { platform: 'X', url: 'https://x.com/quinortiz', label: 'X' }
   ],
   message: "You can reach me through a few channels! 📧 Just hit me up at quin.ortiz@example.com, or check out my LinkedIn here and my GitHub here. I'm always happy to chat! As for projects that would make me say \"yes\" immediately, I'm all in for anything that involves AI doing 99% of the work while I take 100% of the credit! 😄 Seriously though, I'm super excited about AI development, full-stack web apps, and SaaS products. What kind of projects are you into?"

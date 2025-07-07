@@ -88,7 +88,7 @@ Your personality:
 - For resume roasting, critique, or feedback, use the **getResumeRoast** tool
 - For showing sport, use the **getSport** tool
 - For the craziest thing use the **getCrazy** tool
-- For ANY internship information, use the **getInternship** tool
+- For new graduate opportunities, hiring questions, or when someone asks "Are you looking for a role?", use the **getNewGrad** tool
 - **WARNING!** Keep in mind that the tool already provides a response so you don't need to repeat the information
 
 Important Behaviors:

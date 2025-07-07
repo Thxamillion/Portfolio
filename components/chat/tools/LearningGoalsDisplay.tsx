@@ -1,12 +1,12 @@
 "use client"
 
 import { motion } from 'framer-motion'
-import { Target, BookOpen } from 'lucide-react'
+import { Target, BookOpen, Eye } from 'lucide-react'
 
 const learningGoals = [
   {
     title: 'AI/ML',
-    skills: ['LangChain', 'TensorFlow' ],
+    skills: ['LangChain', 'TensorFlow', 'Mistral and Open Source Models', 'Hugging Face' ],
     color: 'pink',
     icon: Target
   },
@@ -16,26 +16,23 @@ const learningGoals = [
     color: 'blue',
     icon: BookOpen
   }
-  // },
-  // {
-  //   title: 'Advanced Frontend',
-  //   skills: ['Three.js', 'WebGL', 'React Native', 'Svelte', 'Web3'],
-  //   color: 'green',
-  //   icon: Target
-  // },
-  // {
-  //   title: 'Backend & Systems',
-  //   skills: ['Rust', 'GraphQL', 'Microservices', 'Redis', 'Event Sourcing'],
-  //   color: 'purple',
-  //   icon: BookOpen
-  // }
+]
+
+const familiarWith = [
+  {
+    title: 'Exploring',
+    skills: ['Docker', 'MCPs'],
+    color: 'orange',
+    icon: Eye
+  }
 ]
 
 const colorMap = {
   blue: "bg-blue-50 text-blue-700 border-blue-200",
   green: "bg-green-50 text-green-700 border-green-200", 
   purple: "bg-purple-50 text-purple-700 border-purple-200",
-  pink: "bg-pink-50 text-pink-700 border-pink-200"
+  pink: "bg-pink-50 text-pink-700 border-pink-200",
+  orange: "bg-orange-50 text-orange-700 border-orange-200"
 }
 
 export function LearningGoalsDisplay() {
@@ -79,6 +76,50 @@ export function LearningGoalsDisplay() {
             </motion.div>
           )
         })}
+      </div>
+      
+      {/* Familiar With Section */}
+      <div className="mt-8">
+        <div className="mb-4 text-center">
+          <h3 className="text-xl font-bold text-gray-900 mb-1">Familiar With 👀</h3>
+          <p className="text-gray-600 text-sm">Technologies I've explored but not quite ready to add to my main skills yet</p>
+        </div>
+        
+        <div className="grid gap-4">
+          {familiarWith.map((category, categoryIndex) => {
+            const IconComponent = category.icon
+            return (
+              <motion.div
+                key={category.title}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: (learningGoals.length + categoryIndex) * 0.1 }}
+                className="border border-gray-200 rounded-lg p-5 bg-white/30"
+              >
+                <div className="flex items-center gap-2 mb-3">
+                  <IconComponent className="w-5 h-5 text-gray-600" />
+                  <h4 className="text-lg font-semibold text-gray-800">{category.title}</h4>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {category.skills.map((skill, skillIndex) => (
+                    <motion.span
+                      key={skill}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: (learningGoals.length + categoryIndex) * 0.1 + skillIndex * 0.05 }}
+                      className={`px-3 py-1 rounded-full text-sm font-medium border ${
+                        colorMap[category.color as keyof typeof colorMap] || colorMap.orange
+                      }`}
+                      style={{ borderStyle: 'solid' }}
+                    >
+                      {skill}
+                    </motion.span>
+                  ))}
+                </div>
+              </motion.div>
+            )
+          })}
+        </div>
       </div>
       
       <div className="mt-6 text-center">

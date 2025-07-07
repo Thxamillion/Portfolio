@@ -5,29 +5,29 @@ import { motion } from 'framer-motion'
 const categories = [
   {
     title: 'Languages',
-    skills: ['JavaScript', 'TypeScript', 'Python', 'Java', 'Go'],
-    color: 'blue'
+    skills: ['TypeScript', 'Python', 'Java', ],
+    color: 'black'
   },
   {
     title: 'Frontend',
-    skills: ['React', 'Next.js', 'Vue', 'Tailwind CSS', 'Framer Motion'],
-    color: 'green'
+    skills: ['React', 'Next.js', , 'Tailwind CSS'],
+    color: 'black'
   },
   {
     title: 'Backend',
-    skills: ['Node.js', 'Express', 'PostgreSQL',  'Redis'],
-    color: 'purple'
+    skills: ['Node.js', 'Express', 'PostgreSQL',  'Supabase'],
+    color: 'black'
   },
   {
     title: 'AI',
-    skills: ['LLM Providers(OpenAI, Whisper Gemini', 'Prompt Engineering', 'Tool calling'],
-    color: 'pink'
+    skills: ['LLM Providers(OpenAI, Whisper Gemini)', 'Vercel AI SDK', 'Whisper','Prompt Engineering', 'Tool calling'],
+    color: 'black'
   },
   //, 'Hugging Face', 'Vector DBs'
   {
-    title: 'Tools',
-    skills: ['Git', 'Docker', 'AWS', 'Vercel', 'Figma'],
-    color: 'orange'
+    title: 'Misc',
+    skills: ['Git', 'Docker', 'Vercel', 'Postman', 'Gherkin', 'Jest'],
+    color: 'black'
   }
 ]
 
@@ -37,6 +37,7 @@ const colorMap = {
   purple: "bg-purple-100 text-purple-700",
   pink: "bg-pink-100 text-pink-700",
   orange: "bg-orange-100 text-orange-700",
+  black: "bg-black text-white"
 }
 
 export function SkillsDisplay() {

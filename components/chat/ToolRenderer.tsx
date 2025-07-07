@@ -10,7 +10,7 @@ import { LearningGoalsDisplay } from './tools/LearningGoalsDisplay'
 import { ResumeRoastDisplay } from './tools/ResumeRoastDisplay'
 import { SportDisplay } from './tools/SportDisplay'
 import { CrazyDisplay } from './tools/CrazyDisplay'
-import { InternshipDisplay } from './tools/InternshipDisplay'
+import { NewGradApplicationDisplay } from './tools/NewGradApplicationDisplay'
 import { RateLimitDisplay } from './tools/RateLimitDisplay'
 
 interface ToolRendererProps {
@@ -95,10 +95,10 @@ export function ToolRenderer({ toolInvocations, onSendMessage }: ToolRendererPro
               </div>
             )
             
-          case 'getInternship':
+          case 'getNewGrad':
             return (
               <div key={tool.toolCallId} className="w-full">
-                <InternshipDisplay />
+                <NewGradApplicationDisplay />
               </div>
             )
             
