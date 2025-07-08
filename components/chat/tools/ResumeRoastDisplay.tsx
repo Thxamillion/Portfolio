@@ -54,7 +54,7 @@ export function ResumeRoastDisplay({ roastText, onFileUpload, onSendMessage }: R
         }
         
         // Send the resume text to the AI for roasting
-        const roastPrompt = `Please roast this resume in a humorous but constructive way. Be brutally honest but also provide helpful feedback. Here's the resume content:\n\n${resumeText}`
+        const roastPrompt = `Please roast this resume in a humorous way. Be brutally honest and silly. Here's the resume content:\n\n${resumeText}`
         
         onSendMessage?.(roastPrompt)
         setShowSuccessMessage(true)
@@ -221,13 +221,11 @@ export function ResumeRoastDisplay({ roastText, onFileUpload, onSendMessage }: R
       {/* Tips Section */}
       <Card className="bg-blue-50 border-blue-200">
         <CardHeader>
-          <CardTitle className="text-blue-800">Pro Tips</CardTitle>
+          <CardTitle className="text-blue-800">Info</CardTitle>
         </CardHeader>
         <CardContent className="text-blue-700">
           <ul className="space-y-2">
-            <li>• Make sure your resume is up-to-date before uploading</li>
-            <li>• The roast will be honest but constructive</li>
-            <li>• PDF format usually works best for parsing</li>
+            <li>• Your resume is not saved, and I keep none of your information</li>
             <li>• Don't take it too personally - it's all in good fun! 😄</li>
           </ul>
         </CardContent>

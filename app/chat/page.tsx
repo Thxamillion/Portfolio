@@ -379,7 +379,7 @@ function ChatPageContent() {
         {messages.length === 0 && (
           <div className="px-4">
             <p className="text-base text-gray-700 max-w-2xl mx-auto">
-              Hey there! 👋 How's it going? What brings you to my little corner of the internet?
+            Hey there! 👋 Welcome to my portfolio. Ask me anything.
             </p>
           </div>
         )}

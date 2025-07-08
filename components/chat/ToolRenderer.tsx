@@ -9,7 +9,6 @@ import { ResumeDisplay } from './tools/ResumeDisplay'
 import { LearningGoalsDisplay } from './tools/LearningGoalsDisplay'
 import { ResumeRoastDisplay } from './tools/ResumeRoastDisplay'
 import { SportDisplay } from './tools/SportDisplay'
-import { CrazyDisplay } from './tools/CrazyDisplay'
 import { NewGradApplicationDisplay } from './tools/NewGradApplicationDisplay'
 import { RateLimitDisplay } from './tools/RateLimitDisplay'
 
@@ -85,13 +84,6 @@ export function ToolRenderer({ toolInvocations, onSendMessage }: ToolRendererPro
             return (
               <div key={tool.toolCallId} className="w-full">
                 <SportDisplay />
-              </div>
-            )
-            
-          case 'getCrazy':
-            return (
-              <div key={tool.toolCallId} className="w-full">
-                <CrazyDisplay />
               </div>
             )
             

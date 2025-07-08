@@ -108,11 +108,7 @@ export default function LandingPage() {
       </div>
 
       {/* Footer */}
-      <div className="flex-none py-8 px-4 text-center">
-        <p className="text-gray-500 text-sm">
-          Built with Next.js, TypeScript, and OpenAI GPT-4
-        </p>
-      </div>
+      
 
       <style jsx global>{`
         @keyframes slide-in-from-bottom {

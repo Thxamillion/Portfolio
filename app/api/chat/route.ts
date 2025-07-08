@@ -9,7 +9,6 @@ import { getContact } from '@/app/tools/getContact';
 import { getLearningGoals } from '@/app/tools/getLearningGoals';
 import { getResumeRoast } from '@/app/tools/getResumeRoast';
 import { getSport } from '@/app/tools/getSport';
-import { getCrazy } from '@/app/tools/getCrazy';
 import { getNewGrad } from '@/app/tools/getNewGrad';
 import { getRateLimit } from '@/app/tools/getRateLimit';
 import { checkRateLimit } from '@/lib/rateLimiter';
@@ -71,7 +70,6 @@ export async function POST(req: Request) {
         getLearningGoals,
         getResumeRoast,
         getSport,
-        getCrazy,
         getNewGrad,
         getRateLimit,
       },

@@ -6,8 +6,8 @@ const presentationData = {
   name: 'Quin Ortiz',
   age: 22,
   location: 'Bridgeport, CT',
-  bio: "22-year-old full-stack developer with a huge interest in AI. Started programming at Platt Tech High School and graduated from Southern Connecticut State University with a CS degree. Passionate about tech, entrepreneurship, and building innovative solutions.",
-  tags: ['React', 'Next.js', 'AI/ML', 'Python', 'TypeScript', 'Entrepreneur', 'LeBron Fan']
+  bio: "22-year-old full-stack developer with a huge interest in AI. Recently graduated from Southern Connecticut State University with a CS degree. Passionate about tech, entrepreneurship, and building innovative solutions.",
+  tags: ['React', 'Next.js', 'AI Tools', 'Python', 'TypeScript',  'LeBron Fan']
 }
 
 export function PresentationDisplay() {
