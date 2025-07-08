@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, Suspense } from "react"
 import { useChat } from "ai/react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -12,7 +12,7 @@ import { analytics } from "@/lib/posthog"
 import { useSearchParams } from "next/navigation"
 // import AnimatedAvatar from "@/components/AnimatedAvatar"
 
-export default function ChatPage() {
+function ChatPageContent() {
   const searchParams = useSearchParams()
   const [showQuickQuestions, setShowQuickQuestions] = useState(true)
   const [toolCache, setToolCache] = useState<Record<string, any>>({})
@@ -600,5 +600,17 @@ export default function ChatPage() {
         }
       `}</style>
     </div>
+  )
+}
+
+export default function ChatPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <Loader2 className="w-8 h-8 animate-spin text-gray-400" />
+      </div>
+    }>
+      <ChatPageContent />
+    </Suspense>
   )
 }
