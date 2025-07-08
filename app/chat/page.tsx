@@ -10,6 +10,7 @@ import remarkGfm from "remark-gfm"
 import { ToolRenderer } from "@/components/chat/ToolRenderer"
 import { analytics } from "@/lib/posthog"
 import { useSearchParams } from "next/navigation"
+import Link from "next/link"
 // import AnimatedAvatar from "@/components/AnimatedAvatar"
 
 function ChatPageContent() {
@@ -366,13 +367,13 @@ function ChatPageContent() {
       {/* Top section with avatar and initial state */}
       <div className="flex-none pt-12 pb-8">
         <div className="flex justify-center mb-6">
-          <div className="h-20 w-20 mx-auto">
+          <Link href="/" className="h-20 w-20 mx-auto cursor-pointer hover:opacity-80 transition-opacity">
             <img
               src="/quin-static.png"
               alt="Quin's Avatar"
               className="w-full h-full object-cover rounded-full"
             />
-          </div>
+          </Link>
         </div>
 
         {messages.length === 0 && (
