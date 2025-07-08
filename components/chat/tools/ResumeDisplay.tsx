@@ -11,7 +11,7 @@ export function ResumeDisplay() {
     description: 'Full Stack Developer • AI Enthusiast',
     fileType: 'PDF',
     lastUpdated: 'July 2025',
-    fileSize: '0.5 MB',
+// file size is 0.5 MB sike
     downloadUrl: '/Quin_Ortiz_Resume (3).pdf',
   };
 

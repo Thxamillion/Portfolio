@@ -6,7 +6,6 @@ import { motion } from 'framer-motion'
 
 const contactData = {
   name: 'Quin Ortiz',
-  username: '@Quin.Ortiz',
   email: 'quinortiz00@gmail.com',
   socials: [
     { platform: 'LinkedIn', url: 'https://linkedin.com/in/quinortiz', label: 'LinkedIn' },
