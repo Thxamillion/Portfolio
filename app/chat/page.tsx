@@ -172,15 +172,8 @@ function ChatPageContent() {
     }
     
     // If not cached, proceed with normal API call
-    setInput(action)
     setIsAIThinking(true)
-    // Use setTimeout to ensure the input is set before submitting
-    setTimeout(() => {
-      const form = document.querySelector('form')
-      if (form) {
-        form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }))
-      }
-    }, 0)
+    await append({ role: 'user', content: action })
   }
 
   const handleResumeDownload = () => {
