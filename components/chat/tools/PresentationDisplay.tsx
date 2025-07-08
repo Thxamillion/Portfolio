@@ -7,7 +7,7 @@ const presentationData = {
   age: 22,
   location: 'Bridgeport, CT',
   bio: "22-year-old full-stack developer with a huge interest in AI. Recently graduated from Southern Connecticut State University with a CS degree. Passionate about tech, entrepreneurship, and building innovative solutions.",
-  tags: ['React', 'Next.js', 'AI Tools', 'Python', 'TypeScript',  'LeBron Fan']
+  tags: ['React', 'Next.js', 'AI Tools', 'Python', 'TypeScript']
 }
 
 export function PresentationDisplay() {

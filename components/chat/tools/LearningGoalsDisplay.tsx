@@ -15,7 +15,7 @@ const learningGoals = [
 const familiarWith = [
   {
     title: 'Exploring',
-    skills: ['Docker', 'MCPs'],
+    skills: ['Docker', 'GCP','MCPs'],
     color: 'orange',
     icon: Eye
   }

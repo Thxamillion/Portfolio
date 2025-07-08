@@ -10,7 +10,7 @@ const categories = [
   },
   {
     title: 'Frontend',
-    skills: ['React', 'Next.js', , 'Tailwind CSS'],
+    skills: ['React', 'Next.js', 'HTML', 'CSS', 'Tailwind CSS'],
     color: 'black'
   },
   {
