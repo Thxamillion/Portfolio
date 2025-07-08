@@ -14,8 +14,12 @@ export function NewGradApplicationDisplay() {
       {/* Header */}
       <div className="flex items-start justify-between mb-8">
         <div className="flex items-center gap-4">
-          <div className="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center">
-            <span className="text-xl text-gray-600">QO</span>
+          <div className="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
+            <img 
+              src="/profile.png" 
+              alt="Quin Ortiz" 
+              className="w-full h-full object-cover"
+            />
           </div>
           <div>
             <h1 className="text-2xl font-bold text-gray-900">Quin Ortiz</h1>
@@ -34,7 +38,7 @@ export function NewGradApplicationDisplay() {
           <Globe className="w-4 h-4 text-green-600" />
           <span className="font-bold text-gray-900">Location</span>
         </div>
-        <p className="text-gray-500 ml-6">Willing to relocating + Remote friendly</p>
+        <p className="text-gray-500 ml-6">Willing to relocate. Remote friendly</p>
       </div>
 
       {/* Tech Stack */}
@@ -61,7 +65,7 @@ export function NewGradApplicationDisplay() {
       <div className="mb-8">
         <h2 className="text-lg font-bold text-gray-900 mb-3">What I bring</h2>
         <p className="text-gray-700 leading-relaxed">
-          I love building solutions and I build fast. Passionate about AI integration with hands-on experience implementing LLM-powered applications. 
+          I love building solutions. Passionate about AI integration with hands-on experience implementing LLM-powered applications. 
           Quick learner with a solution-focused mindset, combining technical skills with creative problem-solving to deliver results.
         </p>
       </div>
