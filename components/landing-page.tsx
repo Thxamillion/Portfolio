@@ -67,31 +67,31 @@ export default function LandingPage() {
             <div className="animate-in slide-in-from-bottom duration-500 bg-white rounded-2xl p-8 max-w-2xl mx-auto shadow-sm border border-gray-200">
               <h3 className="text-xl font-semibold text-gray-900 mb-6">Try asking me about:</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <Link href="/chat" className="group">
+                <Link href="/chat?q=Who%20are%20you%3F%20Tell%20me%20about%20yourself" className="group">
                   <div className="flex items-center gap-3 p-4 rounded-xl border border-gray-200 hover:border-blue-300 hover:bg-blue-50 transition-colors">
                     <User className="w-5 h-5 text-blue-500" />
                     <span className="text-gray-700 group-hover:text-blue-700">My background & experience</span>
                   </div>
                 </Link>
-                <Link href="/chat" className="group">
+                <Link href="/chat?q=What%20projects%20have%20you%20worked%20on%3F" className="group">
                   <div className="flex items-center gap-3 p-4 rounded-xl border border-gray-200 hover:border-green-300 hover:bg-green-50 transition-colors">
                     <FolderOpen className="w-5 h-5 text-green-500" />
                     <span className="text-gray-700 group-hover:text-green-700">Projects I've built</span>
                   </div>
                 </Link>
-                <Link href="/chat" className="group">
+                <Link href="/chat?q=What%20are%20your%20technical%20skills%3F" className="group">
                   <div className="flex items-center gap-3 p-4 rounded-xl border border-gray-200 hover:border-purple-300 hover:bg-purple-50 transition-colors">
                     <Award className="w-5 h-5 text-purple-500" />
                     <span className="text-gray-700 group-hover:text-purple-700">Technical skills</span>
                   </div>
                 </Link>
-                <Link href="/chat" className="group">
+                <Link href="/chat?q=Tell%20me%20something%20fun%20about%20yourself" className="group">
                   <div className="flex items-center gap-3 p-4 rounded-xl border border-gray-200 hover:border-pink-300 hover:bg-pink-50 transition-colors">
                     <Sparkles className="w-5 h-5 text-pink-500" />
                     <span className="text-gray-700 group-hover:text-pink-700">Fun facts about me</span>
                   </div>
                 </Link>
-                <Link href="/chat" className="group">
+                <Link href="/chat?q=How%20can%20I%20contact%20you%3F" className="group">
                   <div className="flex items-center gap-3 p-4 rounded-xl border border-gray-200 hover:border-orange-300 hover:bg-orange-50 transition-colors">
                     <Mail className="w-5 h-5 text-orange-500" />
                     <span className="text-gray-700 group-hover:text-orange-700">How to reach me</span>

@@ -87,7 +87,7 @@ export function ProjectsDisplay() {
   const currentProject = projects[currentIndex]
   
   const openModal = (project: typeof projects[0]) => {
-    console.log('Opening modal for project:', project.title)
+    // Open project modal
     setSelectedProject(project)
     // Add modal to body to escape stacking context
     document.body.style.overflow = 'hidden'

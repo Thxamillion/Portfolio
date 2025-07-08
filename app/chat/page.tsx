@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { useChat } from "ai/react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -9,15 +9,18 @@ import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 import { ToolRenderer } from "@/components/chat/ToolRenderer"
 import { analytics } from "@/lib/posthog"
+import { useSearchParams } from "next/navigation"
 // import AnimatedAvatar from "@/components/AnimatedAvatar"
 
 export default function ChatPage() {
+  const searchParams = useSearchParams()
   const [showQuickQuestions, setShowQuickQuestions] = useState(true)
   const [toolCache, setToolCache] = useState<Record<string, any>>({})
   const [isSimulatedLoading, setIsSimulatedLoading] = useState(false)
   const [showMoreDropdown, setShowMoreDropdown] = useState(false)
   const [isAIThinking, setIsAIThinking] = useState(false)
   const [isAITalking, setIsAITalking] = useState(false)
+  const [hasInitialQuestionProcessed, setHasInitialQuestionProcessed] = useState(false)
   
   // Load cache from localStorage on mount
   React.useEffect(() => {
@@ -52,7 +55,7 @@ export default function ChatPage() {
         const newCache = { ...toolCache, [toolName]: cacheData }
         setToolCache(newCache)
         localStorage.setItem('quinPortfolioToolCache', JSON.stringify(newCache))
-        console.log(`Cached response for tool: ${toolName}`)
+        // Cache stored
         
         // Track tool usage
         analytics.trackToolInvoked(toolName, false)
@@ -91,6 +94,18 @@ export default function ChatPage() {
     // console.log('Messages updated:', messages);
   }, [messages])
 
+  // Handle initial question from URL
+  React.useEffect(() => {
+    const question = searchParams.get('q')
+    if (question && !hasInitialQuestionProcessed && messages.length === 0) {
+      setHasInitialQuestionProcessed(true)
+      // Small delay to ensure everything is loaded
+      setTimeout(() => {
+        handleQuickAction(question)
+      }, 100)
+    }
+  }, [searchParams, hasInitialQuestionProcessed, messages.length])
+
   // Function to send a message programmatically
   const sendMessage = async (message: string) => {
     analytics.trackQuestionAsked(message, false)
@@ -110,14 +125,15 @@ export default function ChatPage() {
       "Show me your resume": "getResume",
       "What are your technical skills?": "getSkills",
       "How can I contact you?": "getContact",
-      "Are you looking for a role?": "getNewGrad"
+      "Are you looking for a role?": "getNewGrad",
+      "Tell me something fun about yourself": "getPresentation" // Maps to presentation for personal info
     }
     
     const toolName = toolMapping[action]
     
     // Check cache first
     if (toolName && toolCache[toolName]) {
-      console.log(`Using cached response for: ${toolName}`)
+      // Using cached response
       
       // Create user message
       const userMessage = {
@@ -192,7 +208,7 @@ export default function ChatPage() {
   const clearCache = () => {
     setToolCache({})
     localStorage.removeItem('quinPortfolioToolCache')
-    console.log('Tool cache cleared!')
+    // Cache cleared
     
     // Track cache clearing
     analytics.trackCacheCleared()
@@ -294,7 +310,7 @@ export default function ChatPage() {
         //   return results
         // }
         
-        console.log('🧹 Clear cache function loaded! Use: clearToolCache()')
+        // Helper functions loaded
       } catch (error) {
         console.error('Error setting up helper functions:', error)
       }
@@ -332,18 +348,20 @@ export default function ChatPage() {
         </Button>
       </div>
 
-      {/* Clear cache button - top right */}
-      <div className="absolute top-4 right-4 z-10">
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={clearCache}
-          className="flex items-center gap-2 bg-white/80 backdrop-blur-sm border-gray-200 hover:bg-white text-gray-600 hover:text-gray-800"
-        >
-          <Trash2 className="w-3 h-3" />
-          Clear Cache
-        </Button>
-      </div>
+      {/* Clear cache button - top right (development only) */}
+      {process.env.NODE_ENV === 'development' && (
+        <div className="absolute top-4 right-4 z-10">
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={clearCache}
+            className="flex items-center gap-2 bg-white/80 backdrop-blur-sm border-gray-200 hover:bg-white text-gray-600 hover:text-gray-800"
+          >
+            <Trash2 className="w-3 h-3" />
+            Clear Cache
+          </Button>
+        </div>
+      )}
 
       {/* Top section with avatar and initial state */}
       <div className="flex-none pt-12 pb-8">

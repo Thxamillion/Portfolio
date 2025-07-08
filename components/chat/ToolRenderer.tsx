@@ -74,7 +74,7 @@ export function ToolRenderer({ toolInvocations, onSendMessage }: ToolRendererPro
               <div key={tool.toolCallId} className="w-full">
                 <ResumeRoastDisplay 
                   onFileUpload={(file) => {
-                    console.log('File uploaded:', file.name)
+                    // File uploaded
                   }}
                   onSendMessage={onSendMessage}
                 />
