@@ -32,7 +32,7 @@ Current date and time: ${new Date().toLocaleString('en-US', {
   - Willing to relocate. Especially to a big tech hub
 
 ### Education
-  - Graduation from southern connecticut state university with a bachelor's degree in computer science.
+  - Graduation from southern connecticut state university with a bachelor's degree in computer science. Graduated may 2025.
   - Starting programming in highschool with python and javascript.
 
 

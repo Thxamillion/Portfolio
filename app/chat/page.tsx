@@ -172,8 +172,22 @@ function ChatPageContent() {
     }
     
     // If not cached, proceed with normal API call
+    setInput(action)
     setIsAIThinking(true)
-    await append({ role: 'user', content: action })
+    // Use a longer timeout to ensure React has updated the input value
+    setTimeout(() => {
+      const form = document.querySelector('form')
+      const inputElement = form?.querySelector('input[type="text"]') as HTMLInputElement
+      if (form && inputElement && inputElement.value) {
+        // Use requestSubmit() for production compatibility
+        if ('requestSubmit' in form) {
+          form.requestSubmit()
+        } else {
+          // Fallback for older browsers
+          form.submit()
+        }
+      }
+    }, 100) // Increased timeout to allow React to update
   }
 
   const handleResumeDownload = () => {
