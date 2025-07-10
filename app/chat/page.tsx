@@ -356,20 +356,19 @@ function ChatPageContent() {
         </Button>
       </div>
 
-      {/* Clear cache button - top right (development only) */}
-      {process.env.NODE_ENV === 'development' && (
-        <div className="absolute top-4 right-4 z-10">
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={clearCache}
-            className="flex items-center gap-2 bg-white/80 backdrop-blur-sm border-gray-200 hover:bg-white text-gray-600 hover:text-gray-800"
-          >
-            <Trash2 className="w-3 h-3" />
-            Clear Cache
-          </Button>
-        </div>
-      )}
+
+      {/* PortfolioGPT Promo - top right */}
+      <div className="absolute top-4 right-4 z-10">
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={() => window.open('https://portfoliogpt.dev', '_blank')}
+          className="flex items-center gap-2 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300"
+        >
+          <Sparkles className="w-4 h-4" />
+          Want your own AI Portfolio?
+        </Button>
+      </div>
 
       {/* Top section with avatar and initial state */}
       <div className="flex-none pt-12 pb-8">
