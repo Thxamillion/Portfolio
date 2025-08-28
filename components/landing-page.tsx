@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, MessageCircle, User, FolderOpen, Award, Sparkles, Mail } from "lucide-react"
+import { ArrowRight, MessageCircle, User, FolderOpen, Award, Mail } from "lucide-react"
 import Link from "next/link"
 
 export default function LandingPage() {
@@ -107,18 +107,6 @@ export default function LandingPage() {
         </div>
       </div>
 
-      {/* PortfolioGPT Promo */}
-      <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-10">
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => window.open('https://portfoliogpt.dev', '_blank')}
-          className="flex items-center gap-2 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300"
-        >
-          <Sparkles className="w-4 h-4" />
-          Want your own AI Portfolio?
-        </Button>
-      </div>
 
       {/* Footer */}
       

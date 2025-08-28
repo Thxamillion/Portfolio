@@ -64,7 +64,10 @@ Current date and time: ${new Date().toLocaleString('en-US', {
     - Startup weekend hackathon project
     - A app that listens to doctors appoints and tracks key action items. 
     - Created to solve a real issue our "founder" had. With information getting lost from doctors appointments with parents.
-  - current project: Fluent Diary - A learning language website with a focus on speaking.
+  -  **Fluent Diary**
+   - A learning language website with a focus on speaking.
+   - Built with React, TypeScript, Speech Recognition, next.js, PostgreSQL
+   - Users can record themselves speaking either free-form or through read-aloud exercises, receiving instant transcripts with detailed speaking metrics including words per minute, filler word detection, and pronunciation support. The app builds a personal vocabulary bank from actual speech patterns, helping users track their language journey with measurable progress indicators.
 
 ### Skills
 **Frontend**

@@ -4,7 +4,7 @@ import React, { useState, useEffect, Suspense } from "react"
 import { useChat } from "ai/react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { ChevronDown, ArrowRight, User, FolderOpen, Award, Sparkles, Mail, MoreHorizontal, Loader2, Trash2 } from "lucide-react"
+import { ChevronDown, ArrowRight, User, FolderOpen, Award, Mail, MoreHorizontal, Loader2, Trash2 } from "lucide-react"
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 import { ToolRenderer } from "@/components/chat/ToolRenderer"
@@ -229,94 +229,7 @@ function ChatPageContent() {
       try {
         globalThis.clearToolCache = clearCache
         
-        // BULK TESTING COMMENTED OUT
-        // globalThis.bulkTest = async (questions) => {
-        //   const results = []
-        //   console.log('🧪 Starting bulk test with', questions.length, 'questions...')
-        //   console.log('='.repeat(50))
-        //   
-        //   for (let i = 0; i < questions.length; i++) {
-        //     const question = questions[i]
-        //     try {
-        //       console.log(`\n📝 Test ${i + 1}/${questions.length}`)
-        //       console.log(`Q: ${question}`)
-        //       
-        //       const response = await fetch('/api/chat', {
-        //         method: 'POST',
-        //         headers: { 'Content-Type': 'application/json' },
-        //         body: JSON.stringify({
-        //           messages: [{ role: 'user', content: question }]
-        //         })
-        //       })
-        //       
-        //       if (!response.ok) {
-        //         throw new Error(`HTTP ${response.status}: ${response.statusText}`)
-        //       }
-        //       
-        //       // Parse the streaming response properly
-        //       const reader = response.body?.getReader()
-        //       const decoder = new TextDecoder()
-        //       let fullResponse = ''
-        //       
-        //       if (reader) {
-        //         while (true) {
-        //           const { done, value } = await reader.read()
-        //           if (done) break
-        //           const chunk = decoder.decode(value, { stream: true })
-        //           fullResponse += chunk
-        //         }
-        //       }
-        //       
-        //       // Extract actual text content from streaming format
-        //       const textParts = []
-        //       const lines = fullResponse.split('\n')
-        //       for (const line of lines) {
-        //         if (line.startsWith('0:')) {
-        //           try {
-        //             const content = line.substring(2).replace(/^"/, '').replace(/"$/, '')
-        //             if (content && !content.includes('messageId') && !content.includes('promptTokens')) {
-        //               textParts.push(content)
-        //             }
-        //           } catch (e) {
-        //             // Skip invalid JSON
-        //           }
-        //         }
-        //       }
-        //       
-        //       const cleanResponse = textParts.join('').replace(/\\n/g, '\n').replace(/\\"/g, '"')
-        //       
-        //       console.log(`A: ${cleanResponse || 'No text response'}`)
-        //       console.log('-'.repeat(30))
-        //       
-        //       results.push({ 
-        //         question, 
-        //         response: cleanResponse || fullResponse,
-        //         status: 'success' 
-        //       })
-        //       
-        //       // Small delay between requests
-        //       await new Promise(resolve => setTimeout(resolve, 500))
-        //       
-        //     } catch (error) {
-        //       console.error(`❌ Error for question: "${question}"`)
-        //       console.error(error)
-        //       console.log('-'.repeat(30))
-        //       
-        //       results.push({ 
-        //         question, 
-        //         error: error.message,
-        //         status: 'error' 
-        //       })
-        //     }
-        //   }
-        //   
-        //   console.log('\n🎉 Bulk test completed!')
-        //   console.log(`✅ Successful: ${results.filter(r => r.status === 'success').length}`)
-        //   console.log(`❌ Failed: ${results.filter(r => r.status === 'error').length}`)
-        //   console.log('='.repeat(50))
-        //   
-        //   return results
-        // }
+        
         
         // Helper functions loaded
       } catch (error) {
@@ -357,18 +270,6 @@ function ChatPageContent() {
       </div>
 
 
-      {/* PortfolioGPT Promo - top right */}
-      <div className="absolute top-4 right-4 z-10">
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => window.open('https://portfoliogpt.dev', '_blank')}
-          className="flex items-center gap-2 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300"
-        >
-          <Sparkles className="w-4 h-4" />
-          Want your own AI Portfolio?
-        </Button>
-      </div>
 
       {/* Top section with avatar and initial state */}
       <div className="flex-none pt-12 pb-8">
