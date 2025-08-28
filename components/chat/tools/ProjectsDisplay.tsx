@@ -30,7 +30,18 @@ const projects = [
       video: 'https://youtu.be/Z5ZjHamozEA',
 
     }
-  // },
+  },
+  {
+    id: 3,
+    title: 'Fluent Diary',
+    description: 'AI-powered language practice app that turns everyday speaking practice into measurable progress with instant transcripts and speaking insights.',
+    bio: 'Fluent Diary is a mobile and web application designed for language learners to improve their speaking fluency. Users can record themselves speaking either free-form or through read-aloud exercises, receiving instant transcripts with detailed speaking metrics including words per minute, filler word detection, and pronunciation support. The app builds a personal vocabulary bank from actual speech patterns, helping users track their language journey with measurable progress indicators.',
+    tech: ['React', 'TypeScript', 'Whisper', 'OpenAI', 'Next.js', 'PostgreSQL'],
+    images: ['/fluent1.png'],
+    links: {
+      live: 'https://fluentdiary.com',
+    }
+  },
   // {
   //   id: 3,
   //   title: 'SoundWave Player',
@@ -69,7 +80,7 @@ const projects = [
   //     github: 'https://github.com/quinortiz/fittracker-pro',
   //     appStore: 'https://apps.apple.com/fittracker-pro'
   //   }
-  }
+  // }
 ]
 
 export function ProjectsDisplay() {
