@@ -6,9 +6,19 @@ import { ChevronLeft, ChevronRight, X, ExternalLink, Github, Eye } from 'lucide-
 import { Button } from '@/components/ui/button'
 
 const projects = [
-  
   {
     id: 1,
+    title: 'Fluent Diary',
+    description: 'AI-powered language practice app that turns everyday speaking practice into measurable progress with instant transcripts and speaking insights.',
+    bio: 'Fluent Diary is a mobile and web application designed for language learners to improve their speaking fluency. Users can record themselves speaking either free-form or through read-aloud exercises, receiving instant transcripts with detailed speaking metrics including words per minute, filler word detection, and pronunciation support. The app builds a personal vocabulary bank from actual speech patterns, helping users track their language journey with measurable progress indicators.',
+    tech: ['React', 'TypeScript', 'Whisper', 'OpenAI', 'Next.js', 'PostgreSQL'],
+    images: ['/fluent1.png'],
+    links: {
+      live: 'https://fluentdiary.com',
+    }
+  },
+  {
+    id: 2,
     title: "Debatably.io",
     description: "A live 1-on-1 video debate platform where users argue in real time and receive instant AI-generated scores based on clarity, logic, and persuasion.",
     bio: "Debatably.io revolutionizes online discourse by providing a structured platform for real-time debates. Users engage in timed debates while AI analyzes their arguments for clarity, logic, and persuasion. The platform features live video streaming, real-time transcription, and instant scoring. Winner of Best Senior Capstone Project at Southern Connecticut State University.",
@@ -20,7 +30,7 @@ const projects = [
     }
   },
   {
-    id: 2,
+    id: 3,
     title: 'CareCircle',
     description: 'A mobile app for patients and their caregivers to track and manage their health and wellness.',
     bio: 'CareCircle was a Techstars Startup Weekend project, where we built a mobile app for patients and their caregivers to track and manage their health and wellness. The goal was to solve a real problem for patients and caregivers where sometimes information during doctors vists can be forgetten or lost in translation.',
@@ -29,17 +39,6 @@ const projects = [
     links: {
       video: 'https://youtu.be/Z5ZjHamozEA',
 
-    }
-  },
-  {
-    id: 3,
-    title: 'Fluent Diary',
-    description: 'AI-powered language practice app that turns everyday speaking practice into measurable progress with instant transcripts and speaking insights.',
-    bio: 'Fluent Diary is a mobile and web application designed for language learners to improve their speaking fluency. Users can record themselves speaking either free-form or through read-aloud exercises, receiving instant transcripts with detailed speaking metrics including words per minute, filler word detection, and pronunciation support. The app builds a personal vocabulary bank from actual speech patterns, helping users track their language journey with measurable progress indicators.',
-    tech: ['React', 'TypeScript', 'Whisper', 'OpenAI', 'Next.js', 'PostgreSQL'],
-    images: ['/fluent1.png'],
-    links: {
-      live: 'https://fluentdiary.com',
     }
   },
   // {
