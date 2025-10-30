@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, MessageCircle, User, FolderOpen, Award, Mail } from "lucide-react"
+import { ArrowRight, MessageCircle, User, FolderOpen, Award, Mail, Sparkles } from "lucide-react"
 import Link from "next/link"
 
 export default function LandingPage() {
