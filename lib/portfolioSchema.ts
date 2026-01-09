@@ -36,6 +36,7 @@ export const PortfolioSchema = z.object({
     bio: z.string(),
     highlights: z.array(z.string()),
     tech: z.array(z.string()).nullable().optional(),
+    platforms: z.array(z.string()).optional(),
     technicalChallenges: z.array(z.string()).nullable().optional(),
     images: z.array(z.string()),
     links: z.object({
@@ -49,14 +50,25 @@ export const PortfolioSchema = z.object({
     readmeKey: z.string().nullable(),
   })).min(1),
   skills: z.object({
+    languages: z.array(z.string()).optional(),
     frontend: z.array(z.string()),
     backend: z.array(z.string()),
+    ai: z.array(z.object({
+      name: z.string(),
+      note: z.string().nullable(),
+    })).optional(),
     aiTools: z.array(z.object({
       name: z.string(),
       note: z.string().nullable(),
-    })),
+    })).optional(),
+    tools: z.array(z.string()).optional(),
     soft: z.array(z.string()),
   }),
+  certifications: z.array(z.object({
+    name: z.string(),
+    year: z.string(),
+    credlyBadgeId: z.string(),
+  })).optional(),
   interests: z.object({
     hobbies: z.array(z.object({
       name: z.string(),

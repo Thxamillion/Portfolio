@@ -285,6 +285,19 @@ function ChatPageContent() {
         />
       </a>
 
+      {/* Dev-only cache clear button */}
+      {typeof window !== 'undefined' && window.location.hostname === 'localhost' && (
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={clearCache}
+          className="absolute top-4 right-32 z-10 bg-white/80 backdrop-blur-sm border-gray-200 hover:bg-white text-gray-600 hover:text-gray-800"
+          title="Clear tool cache"
+        >
+          <Trash2 className="w-4 h-4" />
+        </Button>
+      )}
+
 
 
       {/* Top section with avatar and initial state */}

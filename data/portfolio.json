@@ -46,15 +46,16 @@
       "id": 1,
       "name": "Fluent Diary",
       "github": "quinortiz/fluent-diary",
-      "description": "AI-powered language practice app that turns everyday speaking practice into measurable progress with instant transcripts and speaking insights.",
-      "bio": "Fluent Diary is a mobile and web application designed for language learners to improve their speaking fluency. Users can record themselves speaking either free-form or through read-aloud exercises, receiving instant transcripts with detailed speaking metrics including words per minute, filler word detection, and pronunciation support. The app builds a personal vocabulary bank from actual speech patterns, helping users track their language journey with measurable progress indicators.",
+      "description": "Cross-platform language practice app (web, mobile, desktop) with instant transcripts and speaking insights. Desktop version runs 100% offline with local Whisper.",
+      "bio": "Fluent Diary is a cross-platform application designed for language learners to improve their speaking fluency. Available as a web app, mobile app, and native desktop app built with Rust and Tauri. The desktop version features 100% offline speech transcription using local Whisper.cpp, supporting 5 languages without internet. Users record themselves speaking and receive instant transcripts with detailed speaking metrics including words per minute, filler word detection, and pronunciation support.",
       "highlights": [
-        "Record speaking with instant transcripts",
-        "Speaking metrics: WPM, filler words, pronunciation",
-        "Personal vocabulary bank from speech patterns"
+        "Cross-platform: Web, Mobile, and Desktop (Rust/Tauri)",
+        "100% offline transcription with local Whisper.cpp",
+        "Speaking metrics: WPM, filler words, pronunciation"
       ],
-      "tech": ["React", "TypeScript", "Whisper", "OpenAI", "Next.js", "PostgreSQL"],
-      "technicalChallenges": null,
+      "tech": ["React", "TypeScript", "Tauri", "Rust", "Whisper.cpp", "Next.js", "PostgreSQL"],
+      "platforms": ["Web", "Mobile", "Desktop"],
+      "technicalChallenges": ["Real-time audio processing in Rust", "Cross-platform microphone compatibility"],
       "images": ["/fluent1.png"],
       "links": {
         "live": "https://fluentdiary.com"
@@ -97,6 +98,23 @@
       "links": {
         "video": "https://youtu.be/Z5ZjHamozEA"
       },
+      "readmeKey": null
+    },
+    {
+      "id": 4,
+      "name": "OMVEE",
+      "github": null,
+      "description": "AI video generation SaaS for independent artists and content creators to produce music videos and short-form content without production budgets.",
+      "bio": "OMVEE is an AI-powered video generation platform designed for independent artists and content creators who want to produce music videos and short-form content without expensive production costs. The platform features a multi-step AI agent that autonomously orchestrates the entire video creation pipeline - from transcribing audio to selecting scenes, generating images, and producing final video output - all without human intervention.",
+      "highlights": [
+        "AI video generation for music videos and short-form content",
+        "Multi-step AI agent with function calling and state management",
+        "Autonomous pipeline: transcription, scene selection, image/video generation"
+      ],
+      "tech": ["Next.js", "FastAPI", "PostgreSQL", "Whisper", "DeepSeek", "Docker", "Python"],
+      "technicalChallenges": ["Multi-step AI agent orchestration", "Background job queue for video processing"],
+      "images": ["/omvee.png"],
+      "links": {},
       "readmeKey": null
     }
   ],

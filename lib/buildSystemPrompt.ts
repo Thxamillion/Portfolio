@@ -56,15 +56,20 @@ ${proj.highlights.map(h => `    - ${h}`).join('\n')}
 ${proj.technicalChallenges ? `    - Technical challenges: ${proj.technicalChallenges.join(', ')}` : ''}`).join('\n\n')}
 
 ### Skills
+${skills.languages ? `**Languages**
+${skills.languages.map(s => `- ${s}`).join('\n')}` : ''}
+
 **Frontend**
 ${skills.frontend.map(s => `- ${s}`).join('\n')}
 
 **Backend**
 ${skills.backend.map(s => `- ${s}`).join('\n')}
 
-**AI Tools**
-${skills.aiTools.map(t => `- ${t.name}${t.note ? ` - ${t.note}` : ''}`).join('\n')}
+${skills.ai ? `**AI**
+${skills.ai.map(t => `- ${t.name}${t.note ? ` - ${t.note}` : ''}`).join('\n')}` : ''}
 
+${skills.tools ? `**Tools**
+${skills.tools.map(s => `- ${s}`).join('\n')}` : ''}
 
 **Soft Skills**
 ${skills.soft.map(s => `- ${s}`).join('\n')}
