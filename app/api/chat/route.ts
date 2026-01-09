@@ -23,23 +23,24 @@ export const dynamic = 'force-dynamic';
 export async function POST(req: Request) {
   try {
     // Access headers to force dynamic behavior and prevent caching
-    const headersList = headers();
-    
+    // Note: In Next.js 15, headers() must be awaited
+    const headersList = await headers();
+
     const { messages } = await req.json();
-    
+
     // Load API key from environment variable
     const apiKey = process.env.OPENAI_API_KEY;
-    
+
     if (!apiKey) {
       console.error('OPENAI_API_KEY is not set in environment variables');
       throw new Error('OpenAI API key is not configured');
     }
-    
+
     // Create OpenAI instance with explicit API key
     const openai = createOpenAI({
       apiKey: apiKey,
     });
-    
+
     // Get client IP for rate limiting
     const ip = headersList.get('x-forwarded-for') || headersList.get('x-real-ip') || 'unknown';
     
