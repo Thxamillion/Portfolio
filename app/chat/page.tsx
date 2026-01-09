@@ -78,17 +78,18 @@ function ChatPageContent() {
   })
 
   // Store the actual messages to display (only latest Q&A pair)
-  const displayMessages = React.useMemo(() => {
+  // Don't memoize - we need to re-render on each streaming token
+  const displayMessages = (() => {
     if (messages.length === 0) return []
-    
+
     // If we have an odd number of messages (user just sent, waiting for response)
     if (messages.length % 2 === 1) {
       return messages.slice(-1) // Show only the latest user message
     }
-    
+
     // If we have an even number (complete Q&A pairs)
     return messages.slice(-2) // Show the latest Q&A pair
-  }, [messages])
+  })()
   
   // Handle message transitions
   React.useEffect(() => {
