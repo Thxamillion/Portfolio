@@ -56,7 +56,7 @@ jobs:
           rm -rf ~/.pulumi
 
       - name: Deploy SST
-        run: npx sst deploy --stage production
+        run: npx sst deploy --stage dev
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           NEXT_PUBLIC_POSTHOG_KEY: ${{ secrets.POSTHOG_API_KEY }}
