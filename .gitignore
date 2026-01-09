@@ -30,6 +30,7 @@ next-env.d.ts
 AWS_ARCHITECTURE.md
 TERRAFORM_IMPLEMENTATION_PLAN.md
 plan.md
+CLAUDE.md
 
 # SST
 .sst

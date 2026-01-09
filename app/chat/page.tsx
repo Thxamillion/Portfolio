@@ -270,6 +270,21 @@ function ChatPageContent() {
         </Button>
       </div>
 
+      {/* GitHub link - top right */}
+      <a
+        href="https://github.com/Thxamillion/Portfolio"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="absolute top-4 right-4 z-10"
+        title="View source on GitHub"
+      >
+        <img
+          src="https://img.shields.io/github/stars/Thxamillion/Portfolio?style=social"
+          alt="GitHub stars"
+          className="h-6"
+        />
+      </a>
+
 
 
       {/* Top section with avatar and initial state */}

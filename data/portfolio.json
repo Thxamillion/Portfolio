@@ -101,16 +101,27 @@
     }
   ],
   "skills": {
-    "frontend": ["React", "Next.js", "Tailwind CSS", "TypeScript", "JavaScript"],
-    "backend": ["Node.js", "Python", "Java", "SQL"],
-    "aiTools": [
+    "languages": ["TypeScript", "JavaScript", "Python", "Java", "SQL"],
+    "frontend": ["React", "Next.js", "HTML", "CSS", "Tailwind CSS"],
+    "backend": ["Node.js", "Express", "PostgreSQL", "Supabase"],
+    "ai": [
+      {"name": "LLM Providers (OpenAI, Gemini)", "note": null},
+      {"name": "Whisper", "note": "Favorite AI feature tool"},
       {"name": "Claude Code", "note": "Favorite AI dev tool, huge productivity boost"},
-      {"name": "OpenAI API", "note": null},
-      {"name": "Vercel AI SDK", "note": null},
-      {"name": "Whisper", "note": "Favorite AI feature tool"}
+      {"name": "MCPs", "note": "Model Context Protocol servers"},
+      {"name": "Prompt Engineering", "note": null},
+      {"name": "Tool Calling", "note": null}
     ],
+    "tools": ["Git", "GitHub", "GitHub Actions", "AWS", "Docker", "Vercel", "Postman", "Gherkin", "Jest", "JUnit"],
     "soft": ["Communication", "Problem-Solving", "Adaptability", "Learning Agility", "Teamwork", "Creativity", "Focus"]
   },
+  "certifications": [
+    {
+      "name": "AWS Certified Solutions Architect - Associate",
+      "year": "2026",
+      "credlyBadgeId": "7cf775e1-2b72-4abe-9944-e504b16a1f90"
+    }
+  ],
   "interests": {
     "hobbies": [
       {"name": "Cooking", "details": "Did a taco bar for birthday, cooked hibachi last year"},
