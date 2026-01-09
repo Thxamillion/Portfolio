@@ -53,6 +53,7 @@ resource "aws_iam_role_policy" "github_actions" {
         Action = [
           "s3:*",
           "cloudfront:*",
+          "cloudfront-keyvaluestore:*",
           "lambda:*",
           "iam:*",
           "route53:*",
