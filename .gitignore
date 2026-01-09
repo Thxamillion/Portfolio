@@ -26,11 +26,16 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# planning docs
-AWS_ARCHITECTURE.md
-TERRAFORM_IMPLEMENTATION_PLAN.md
+# planning docs & internal notes
+*.md
+!README.md
 plan.md
-CLAUDE.md
+
+# macOS
+.DS_Store
+
+# test output
+test-results/
 
 # SST
 .sst
