@@ -10,9 +10,8 @@ export function ResumeDisplay() {
     title: "Quin's Resume",
     description: 'Full Stack Developer',
     fileType: 'PDF',
-    lastUpdated: 'July 2025',
-// file size is 0.5 MB sike
-    downloadUrl: '/Quin_Ortiz_Resume (3).pdf',
+    lastUpdated: 'January 2026',
+    downloadUrl: '/api/resume',
   };
 
   const handleDownload = () => {
@@ -49,8 +48,6 @@ export function ResumeDisplay() {
                 <span>{resumeDetails.fileType}</span>
                 <span className="mx-2">•</span>
                 <span>Updated {resumeDetails.lastUpdated}</span>
-                <span className="mx-2">•</span>
-                <span>{resumeDetails.fileSize}</span>
               </div>
             </div>
 

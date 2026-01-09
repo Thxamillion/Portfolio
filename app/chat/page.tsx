@@ -443,17 +443,6 @@ function ChatPageContent() {
                         {question}
                       </button>
                     ))}
-                    <div className="border-t border-gray-100 mt-2 pt-2">
-                      <button
-                        onClick={() => {
-                          clearCache()
-                          setShowMoreDropdown(false)
-                        }}
-                        className="w-full text-left px-3 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors"
-                      >
-                        Clear Cache
-                      </button>
-                    </div>
                   </div>
                 )}
               </div>

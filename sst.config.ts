@@ -29,6 +29,10 @@ export default $config({
 
     // Deploy the Next.js app
     const site = new sst.aws.Nextjs("QuinPortfolio", {
+      domain: {
+        name: "quinortiz.com",
+        redirects: ["www.quinortiz.com"],
+      },
       server: {
         memory: "1024 MB",
       },
