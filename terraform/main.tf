@@ -8,14 +8,13 @@ terraform {
     }
   }
 
-  # Uncomment after creating the S3 bucket and DynamoDB table for state
-  # backend "s3" {
-  #   bucket         = "quin-portfolio-terraform-state"
-  #   key            = "portfolio/terraform.tfstate"
-  #   region         = "us-east-1"
-  #   dynamodb_table = "quin-portfolio-terraform-lock"
-  #   encrypt        = true
-  # }
+  backend "s3" {
+    bucket         = "quin-portfolio-terraform-state"
+    key            = "portfolio/terraform.tfstate"
+    region         = "us-east-1"
+    dynamodb_table = "quin-portfolio-terraform-lock"
+    encrypt        = true
+  }
 }
 
 provider "aws" {
