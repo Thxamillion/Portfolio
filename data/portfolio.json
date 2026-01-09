@@ -1,0 +1,130 @@
+{
+  "personal": {
+    "name": "Quin Ortiz",
+    "age": 22,
+    "birthday": "April 27, 2003",
+    "location": "Bridgeport, CT",
+    "willingToRelocate": true,
+    "qualities": ["tenacious", "determined", "locked in", "great problem solver", "great learner"]
+  },
+  "education": {
+    "university": {
+      "name": "Southern Connecticut State University",
+      "degree": "Bachelor's in Computer Science",
+      "graduated": "May 2025"
+    },
+    "highSchool": {
+      "name": "Platt Tech",
+      "focus": "IT",
+      "languages": ["Python", "JavaScript"]
+    }
+  },
+  "experience": [
+    {
+      "company": "UKG",
+      "role": "Software Engineering Intern",
+      "period": "Summer 2024",
+      "highlights": [
+        "Worked on v2 of React page for customer support staff",
+        "Removed need for developer intervention in rare cases",
+        "Automation tests with Gherkin and Cucumber",
+        "Wrote feature files and step definitions"
+      ]
+    },
+    {
+      "company": "Victory Waves",
+      "role": "Software Engineering Intern",
+      "period": "Fall 2024",
+      "highlights": [
+        "Phone banking application for politicians",
+        "React Native, TypeScript, WebSockets"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "name": "Fluent Diary",
+      "github": "quinortiz/fluent-diary",
+      "description": "AI-powered language practice app that turns everyday speaking practice into measurable progress with instant transcripts and speaking insights.",
+      "bio": "Fluent Diary is a mobile and web application designed for language learners to improve their speaking fluency. Users can record themselves speaking either free-form or through read-aloud exercises, receiving instant transcripts with detailed speaking metrics including words per minute, filler word detection, and pronunciation support. The app builds a personal vocabulary bank from actual speech patterns, helping users track their language journey with measurable progress indicators.",
+      "highlights": [
+        "Record speaking with instant transcripts",
+        "Speaking metrics: WPM, filler words, pronunciation",
+        "Personal vocabulary bank from speech patterns"
+      ],
+      "tech": ["React", "TypeScript", "Whisper", "OpenAI", "Next.js", "PostgreSQL"],
+      "technicalChallenges": null,
+      "images": ["/fluent1.png"],
+      "links": {
+        "live": "https://fluentdiary.com"
+      },
+      "readmeKey": "readmes/fluent-diary.md"
+    },
+    {
+      "id": 2,
+      "name": "Debatably.io",
+      "github": "quinortiz/debatably",
+      "description": "A live 1-on-1 video debate platform where users argue in real time and receive instant AI-generated scores based on clarity, logic, and persuasion.",
+      "bio": "Debatably.io revolutionizes online discourse by providing a structured platform for real-time debates. Users engage in timed debates while AI analyzes their arguments for clarity, logic, and persuasion. The platform features live video streaming, real-time transcription, and instant scoring. Winner of Best Senior Capstone Project at Southern Connecticut State University.",
+      "highlights": [
+        "Users argue and get AI-generated scores",
+        "Built with React, TypeScript, WebRTC, PostgreSQL, Supabase",
+        "Won Best Senior Capstone at SCSU"
+      ],
+      "tech": ["React", "TypeScript", "WebRTC", "Supabase", "OpenAI", "Whisper", "Socket.io", "Node.js", "Docker"],
+      "technicalChallenges": ["real-time video and audio", "AI integration for scoring"],
+      "images": ["/debateHome.png", "/debateWin.jpg", "/debate2.png", "/debate3.png"],
+      "links": {
+        "live": "https://debatably.io"
+      },
+      "readmeKey": "readmes/debatably.md"
+    },
+    {
+      "id": 3,
+      "name": "CareCircle",
+      "github": null,
+      "description": "A mobile app for patients and their caregivers to track and manage their health and wellness.",
+      "bio": "CareCircle was a Techstars Startup Weekend project, where we built a mobile app for patients and their caregivers to track and manage their health and wellness. The goal was to solve a real problem for patients and caregivers where sometimes information during doctors vists can be forgetten or lost in translation.",
+      "highlights": [
+        "App that listens to doctor appointments",
+        "Tracks key action items",
+        "Solves information loss from medical appointments"
+      ],
+      "tech": ["React Native", "TypeScript", "Whisper", "Supabase", "OpenAI"],
+      "technicalChallenges": null,
+      "images": ["CareWeb.png", "/Care1.png", "/Care2.png", "/Care3.png"],
+      "links": {
+        "video": "https://youtu.be/Z5ZjHamozEA"
+      },
+      "readmeKey": null
+    }
+  ],
+  "skills": {
+    "frontend": ["React", "Next.js", "Tailwind CSS", "TypeScript", "JavaScript"],
+    "backend": ["Node.js", "Python", "Java", "SQL"],
+    "aiTools": [
+      {"name": "Claude Code", "note": "Favorite AI dev tool, huge productivity boost"},
+      {"name": "OpenAI API", "note": null},
+      {"name": "Vercel AI SDK", "note": null},
+      {"name": "Whisper", "note": "Favorite AI feature tool"}
+    ],
+    "soft": ["Communication", "Problem-Solving", "Adaptability", "Learning Agility", "Teamwork", "Creativity", "Focus"]
+  },
+  "interests": {
+    "hobbies": [
+      {"name": "Cooking", "details": "Did a taco bar for birthday, cooked hibachi last year"},
+      {"name": "Basketball", "details": "Play and watch, Lakers fan, LeBron is the GOAT"},
+      {"name": "Coding", "details": "Currently working on fluentdiary.com"},
+      {"name": "Travel", "details": "Recently went to Mexico City - museums and food were amazing"}
+    ],
+    "favoriteFood": "Tacos",
+    "nbaTeam": "Lakers",
+    "favoritePlayer": "LeBron James"
+  },
+  "goals": {
+    "fiveYears": "Part of a big project, either as owner or key team member",
+    "idealProject": "A project where I can wear a lot of hats and learn a lot",
+    "availableToStart": "Immediately"
+  }
+}

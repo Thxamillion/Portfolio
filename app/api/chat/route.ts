@@ -12,7 +12,8 @@ import { getSport } from '@/app/tools/getSport';
 import { getNewGrad } from '@/app/tools/getNewGrad';
 import { getRateLimit } from '@/app/tools/getRateLimit';
 import { checkRateLimit } from '@/lib/rateLimiter';
-import { SYSTEM_PROMPT } from './prompt';
+import { getPortfolioData } from '@/lib/portfolioData';
+import { buildSystemPrompt } from '@/lib/buildSystemPrompt';
 
 // Force dynamic rendering to prevent caching issues
 export const dynamic = 'force-dynamic';
@@ -57,10 +58,14 @@ export async function POST(req: Request) {
       }).toDataStreamResponse();
     }
     
+    // Fetch portfolio data and build system prompt dynamically
+    const portfolioData = await getPortfolioData();
+    const systemPrompt = buildSystemPrompt(portfolioData);
+
     const result = await streamText({
       model: openai('gpt-4o-mini'),
       messages,
-      system: SYSTEM_PROMPT.content,
+      system: systemPrompt,
       tools: {
         getPresentation,
         getProjects,

@@ -5,86 +5,37 @@ import { useState, useEffect } from 'react'
 import { ChevronLeft, ChevronRight, X, ExternalLink, Github, Eye } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
-const projects = [
-  {
-    id: 1,
-    title: 'Fluent Diary',
-    description: 'AI-powered language practice app that turns everyday speaking practice into measurable progress with instant transcripts and speaking insights.',
-    bio: 'Fluent Diary is a mobile and web application designed for language learners to improve their speaking fluency. Users can record themselves speaking either free-form or through read-aloud exercises, receiving instant transcripts with detailed speaking metrics including words per minute, filler word detection, and pronunciation support. The app builds a personal vocabulary bank from actual speech patterns, helping users track their language journey with measurable progress indicators.',
-    tech: ['React', 'TypeScript', 'Whisper', 'OpenAI', 'Next.js', 'PostgreSQL'],
-    images: ['/fluent1.png'],
-    links: {
-      live: 'https://fluentdiary.com',
-    }
-  },
-  {
-    id: 2,
-    title: "Debatably.io",
-    description: "A live 1-on-1 video debate platform where users argue in real time and receive instant AI-generated scores based on clarity, logic, and persuasion.",
-    bio: "Debatably.io revolutionizes online discourse by providing a structured platform for real-time debates. Users engage in timed debates while AI analyzes their arguments for clarity, logic, and persuasion. The platform features live video streaming, real-time transcription, and instant scoring. Winner of Best Senior Capstone Project at Southern Connecticut State University.",
-    tech: ["React", "TypeScript", "WebRTC", "Supabase", "OpenAI", "Whisper", "Socket.io", "Node.js", "Docker"],
-    images: ["/debateHome.png", "/debateWin.jpg", "/debate2.png", "/debate3.png"],
-    links: {
-      live: 'https://debatably.io',
+interface Project {
+  id: number
+  title: string
+  description: string
+  bio: string
+  tech: string[]
+  images: string[]
+  links: {
+    live?: string
+    video?: string
+    github?: string
+    demo?: string
+    appStore?: string
+    devpost?: string
+  }
+}
 
-    }
-  },
-  {
-    id: 3,
-    title: 'CareCircle',
-    description: 'A mobile app for patients and their caregivers to track and manage their health and wellness.',
-    bio: 'CareCircle was a Techstars Startup Weekend project, where we built a mobile app for patients and their caregivers to track and manage their health and wellness. The goal was to solve a real problem for patients and caregivers where sometimes information during doctors vists can be forgetten or lost in translation.',
-    tech: ['React Native', 'TypeScript', 'Whisper', 'Supabase', 'OpenAI'],
-    images: ['CareWeb.png','/Care1.png', '/Care2.png', '/Care3.png'],
-    links: {
-      video: 'https://youtu.be/Z5ZjHamozEA',
+interface ProjectsDisplayProps {
+  projects?: Project[]
+}
 
-    }
-  },
-  // {
-  //   id: 3,
-  //   title: 'SoundWave Player',
-  //   description: 'Music streaming app with personalized playlists and social sharing features.',
-  //   bio: 'SoundWave Player is a modern music streaming application that combines personalized recommendations with social features. Users can create custom playlists, discover new music through AI-powered suggestions, and share their favorite tracks with friends.',
-  //   tech: ['Flutter', 'Dart', 'Firebase', 'Spotify API', 'Machine Learning'],
-  //   images: ['/placeholder.svg?height=256&width=320&text=Music+Streaming+App'],
-  //   links: {
-  //     demo: 'https://soundwave-player.com',
-  //     github: 'https://github.com/quinortiz/soundwave-player',
-  //     playStore: 'https://play.google.com/store/soundwave'
-  //   }
-  // },
-  // {
-  //   id: 4,
-  //   title: 'E-Commerce Platform',
-  //   description: 'Full-stack e-commerce solution with payment integration and inventory management.',
-  //   bio: 'A comprehensive e-commerce platform built for scalability and performance. Features include advanced inventory management, secure payment processing, real-time analytics, and a responsive admin dashboard. Designed to handle high-volume transactions with optimized performance.',
-  //   tech: ['React', 'Node.js', 'PostgreSQL', 'Stripe', 'Redis', 'Docker'],
-  //   images: ['/placeholder.svg?height=256&width=320&text=E-Commerce+Platform'],
-  //   links: {
-  //     demo: 'https://ecommerce-demo.com',
-  //     github: 'https://github.com/quinortiz/ecommerce-platform',
-  //     live: 'https://store.quinortiz.com'
-  //   }
-  // },
-  // {
-  //   id: 5,
-  //   title: 'FitTracker Pro',
-  //   description: 'Comprehensive fitness tracking app with workout plans and progress analytics.',
-  //   bio: 'FitTracker Pro is a full-featured fitness application that helps users achieve their health goals through personalized workout plans, nutrition tracking, and detailed progress analytics. The app includes social features for motivation and expert-designed workout routines.',
-  //   tech: ['React Native', 'TypeScript', 'MongoDB', 'Express.js', 'Chart.js'],
-  //   images: ['/placeholder.svg?height=256&width=320&text=Fitness+Tracker+App'],
-  //   links: {
-  //     demo: 'https://fittracker-pro.com',
-  //     github: 'https://github.com/quinortiz/fittracker-pro',
-  //     appStore: 'https://apps.apple.com/fittracker-pro'
-  //   }
-  // }
-]
+export function ProjectsDisplay({ projects: propProjects }: ProjectsDisplayProps) {
+  // Use props if provided, otherwise empty array (should always have props now)
+  const projects = propProjects || []
 
-export function ProjectsDisplay() {
   const [currentIndex, setCurrentIndex] = useState(0)
-  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null)
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null)
+
+  if (projects.length === 0) {
+    return <div className="text-gray-500">No projects available</div>
+  }
   
   const nextProject = () => {
     setCurrentIndex((prev) => (prev + 1) % projects.length)

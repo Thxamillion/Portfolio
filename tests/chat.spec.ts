@@ -178,7 +178,6 @@ test.describe('Chat Page (/chat) Tests', () => {
     
     // Check if input is disabled during loading
     const inputDisabled = await input.isDisabled();
-    console.log('Input disabled during loading:', inputDisabled);
     
     // Wait for response
     await page.waitForTimeout(4000);
@@ -273,7 +272,6 @@ test.describe('Chat Page (/chat) Tests', () => {
     page.on('response', response => {
       if (response.url().includes('/api/chat') && !response.ok()) {
         apiRequestFailed = true;
-        console.log('API request failed:', response.status());
       }
     });
     
@@ -287,8 +285,5 @@ test.describe('Chat Page (/chat) Tests', () => {
     
     // Take screenshot regardless of success/failure
     await page.screenshot({ path: 'test-results/chat-api-test.png', fullPage: true });
-    
-    // Log the result
-    console.log('API request failed:', apiRequestFailed);
   });
 });

@@ -27,9 +27,12 @@ export function ToolRenderer({ toolInvocations, onSendMessage }: ToolRendererPro
         
         switch (toolName) {
           case 'getProjects':
+            // Debug: log the tool result structure
+            console.log('getProjects tool result:', tool)
+            const projectsResult = 'result' in tool ? tool.result : null
             return (
               <div key={tool.toolCallId} className="w-full">
-                <ProjectsDisplay />
+                <ProjectsDisplay projects={projectsResult?.projects} />
               </div>
             )
             

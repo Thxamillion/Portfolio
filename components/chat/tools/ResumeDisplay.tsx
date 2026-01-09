@@ -8,7 +8,7 @@ export function ResumeDisplay() {
   // Resume details
   const resumeDetails = {
     title: "Quin's Resume",
-    description: 'Full Stack Developer • AI Enthusiast',
+    description: 'Full Stack Developer',
     fileType: 'PDF',
     lastUpdated: 'July 2025',
 // file size is 0.5 MB sike

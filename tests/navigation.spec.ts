@@ -119,16 +119,12 @@ test.describe('Navigation and Cross-Page Tests', () => {
     await page.goto('/');
     await page.waitForLoadState('networkidle');
     const loadTime1 = Date.now() - startTime1;
-    
-    console.log(`Main page load time: ${loadTime1}ms`);
-    
+
     // Test chat page loading time
     const startTime2 = Date.now();
     await page.goto('/chat');
     await page.waitForLoadState('networkidle');
     const loadTime2 = Date.now() - startTime2;
-    
-    console.log(`Chat page load time: ${loadTime2}ms`);
     
     // Both pages should load reasonably quickly (under 5 seconds)
     expect(loadTime1).toBeLessThan(5000);
@@ -145,7 +141,6 @@ test.describe('Navigation and Cross-Page Tests', () => {
     
     // Check if buttons are focusable
     const focusedElement = await page.evaluate(() => document.activeElement?.tagName);
-    console.log('Focused element:', focusedElement);
     
     // Navigate to chat and test accessibility there too
     await page.goto('/chat');

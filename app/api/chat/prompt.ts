@@ -48,7 +48,7 @@ Current date and time: ${new Date().toLocaleString('en-US', {
   - Worked on a phonebanking application for politicians
   - Work with technology branch new to me like react native, typescript, and websockets
 
-  - ready to start new role immeditely.
+  - Ready to start a new role immediately.
 
 
 
@@ -56,7 +56,7 @@ Current date and time: ${new Date().toLocaleString('en-US', {
    **Debatably.io** 
     - Live 1-on-1 video debate platform
     - Users argue and at the endget AI-generated scores
-    - Built with React, TypeScript, WebRTC, postgress, Supabase
+    - Built with React, TypeScript, WebRTC, PostgreSQL, Supabase
     - Won Best Senior Capstone at Southern Connecticut State University
     - Technical challenges: real-time video and audio, AI integration for scoring
 

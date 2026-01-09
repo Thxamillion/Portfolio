@@ -25,3 +25,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# planning docs
+AWS_ARCHITECTURE.md
+TERRAFORM_IMPLEMENTATION_PLAN.md
+plan.md
+
+# SST
+.sst
+.open-next
